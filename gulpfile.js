@@ -18,7 +18,7 @@ var watchify = require('watchify');
 
 function buildScript (file) {
     var props = {
-        entries: ['./src/' + file],
+        entries: ['./components/' + file],
         debug: true,
         transform: [reactify]
     };
