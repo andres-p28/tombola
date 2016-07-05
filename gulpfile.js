@@ -59,11 +59,16 @@ function buildView () {
 }
 
 function buildStyle () {
-    return gulp.src('./src/**/*.scss')
+    return gulp.src('./components/**/*.scss')
         .pipe(sass())
         .pipe(concat('styles.css'))
         .pipe(minifycss())
         .pipe(gulp.dest('./build/'));
+}
+
+function buildImages () {
+  return gulp.src('./images/**/*')
+    .pipe(gulp.dest('./build/images'))
 }
 
 gulp.task('build-script', function () {
@@ -78,11 +83,15 @@ gulp.task('build-style', function () {
     return buildStyle();
 });
 
-gulp.task('watch-style', function () {
-    gulp.watch(['./src/**/*.scss'], ['build-style']);
+gulp.task('build-images', function () {
+    return buildImages();
 });
 
-gulp.task('default', ['build-script', 'build-view', 'build-style', 'watch-style'], function () {
+gulp.task('watch-style', function () {
+    gulp.watch(['./components/**/*.scss'], ['build-style']);
+});
+
+gulp.task('default', ['build-script', 'build-view', 'build-style', 'build-images', 'watch-style'], function () {
     if (!argv.production) {
         browsersync.init({
             files: ['./build/bundle.js', './build/styles.css'],

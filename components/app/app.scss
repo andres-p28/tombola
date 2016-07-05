@@ -1,0 +1,12 @@
+.app{
+    font-family: 'Open Sans', sans-serif;
+    width: 80%;
+    margin: 0 auto;
+    &__title{
+        margin: 0px;
+        text-align: center;
+    }
+    img{
+        max-width: 100%;
+    }
+}

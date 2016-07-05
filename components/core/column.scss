@@ -1,0 +1,13 @@
+div[class^="grid__column--"]{
+    float: left;
+}
+
+@for $i from 1 through 10{
+    .grid__column--#{$i*10}{
+        width: $i*10 + %;
+    }
+}
+
+.grid__column--33{
+    width: 33.333333333%;
+}

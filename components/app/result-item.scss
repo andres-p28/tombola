@@ -1,0 +1,33 @@
+.result-item{
+
+    &--grid{
+        cursor: pointer;
+        margin: 10px;
+        box-sizing: border-box;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        transition: 0.2s background ease-in-out;
+        border-radius: 2px;
+        &:hover{
+            background-color: #eee;
+        }
+
+        &.selected{
+            outline: 2px solid orange;
+        }
+
+    }
+    &__title{
+        &--grid{
+            margin: 0px;
+            height: 66px;
+            line-height: 22px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+    &__title-wrapper{
+        &--grid{
+            padding: 10px;
+        }
+    }
+}

@@ -9,9 +9,12 @@
   "author": "Nahuel J. Sacchetti",
   "license": "ISC",
   "dependencies": {
+    "classnames": "^2.2.5",
     "jade": "^1.11.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-youtube": "^7.0.1",
+    "react-youtube-player": "^0.3.3"
   },
   "devDependencies": {
     "browser-sync": "^2.13.0",
