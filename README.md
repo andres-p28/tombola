@@ -5,6 +5,7 @@
 Clone this repository and start to contribute with this amazing application. Help us to create a great and fun experience through the bests of the arts, *music*.
     
     git clone https://github.com/pretendersglb/tombola.git
+    cd tombola/ && npm install
     
 Start playing with our code just doing:
 
