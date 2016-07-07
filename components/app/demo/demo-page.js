@@ -1,11 +1,10 @@
 var React = require('react');
 
-
 var Button = require('components/core/button');
 var Input = require('components/core/input');
 var Icon = require('components/core/icon');
 
-var App = React.createClass({
+var DemoPage = React.createClass({
 
     render: function () {
         return(
@@ -42,4 +41,4 @@ var App = React.createClass({
 
 });
 
-module.exports = App;
+module.exports = DemoPage;
