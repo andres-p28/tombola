@@ -58,6 +58,11 @@ function buildView () {
         .pipe(gulp.dest('./build/'));
 }
 
+function buildImages () {
+  return gulp.src('./images/**/*')
+    .pipe(gulp.dest('./build/images'))
+}
+
 function buildStyle () {
     return gulp.src('./components/**/*.scss')
         .pipe(sass())
@@ -66,12 +71,17 @@ function buildStyle () {
         .pipe(gulp.dest('./build/'));
 }
 
+
 gulp.task('build-script', function () {
     return buildScript('app.js');
 });
 
 gulp.task('build-view', function () {
     return buildView();
+});
+
+gulp.task('build-images', function () {
+    return buildImages();
 });
 
 gulp.task('build-style', function () {
@@ -82,7 +92,8 @@ gulp.task('watch-style', function () {
     gulp.watch(['./components/**/*.scss'], ['build-style']);
 });
 
-gulp.task('default', ['build-script', 'build-view', 'build-style', 'watch-style'], function () {
+
+gulp.task('default', ['build-script', 'build-view', 'build-images', 'build-style', 'watch-style'], function () {
     if (!argv.production) {
         browsersync.init({
             files: ['./build/bundle.js', './build/styles.css'],

@@ -3,6 +3,7 @@ var React = require('react');
 
 var Button = require('components/core/button');
 var Input = require('components/core/input');
+var Icon = require('components/core/icon');
 
 var App = React.createClass({
 
@@ -26,6 +27,10 @@ var App = React.createClass({
                 </div><br/><br/>
                 <div>
                     <Input onChange={this.handleChange}/>
+                </div>
+                <div>
+                    <Icon />
+                    <Icon icon="times"/>
                 </div>
             </div>
         );

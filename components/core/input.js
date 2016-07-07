@@ -7,7 +7,7 @@ var Input = React.createClass({
 
     render: function () {
         return (
-            <input {...this.getProps()} className={this.getClass()}/>
+            <input {...this.getProps()}/>
         );
     },
 
@@ -17,6 +17,7 @@ var Input = React.createClass({
 
     getProps: function () {
         return {
+            className: this.getClass(), 
             onChange: this.props.onChange
         }
     }

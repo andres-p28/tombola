@@ -1,6 +1,5 @@
 var React = require('react');
 var classNames = require('classnames');
-var _ = require('lodash');
 
 const colors = ['primary', 'secondary', 'tertiary'];
 const types = ['squared', 'rounded'];
