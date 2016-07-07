@@ -25,7 +25,7 @@ var App = React.createClass({
                     <Button buttonType="rounded" size="small" color="tertiary">RS</Button>
                 </div><br/><br/>
                 <div>
-                    <Input />
+                    <Input onChange={this.handleChange}/>
                 </div>
             </div>
         );
@@ -33,6 +33,10 @@ var App = React.createClass({
 
     handleClick: function () {
         console.log('Click!');
+    },
+
+    handleChange: function (event) {
+        console.log(event.target.value)
     }
 
 });
