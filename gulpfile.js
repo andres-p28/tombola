@@ -16,12 +16,18 @@ var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var watchify = require('watchify');
 
+var stylesSrc = [
+    './components/**/*.scss',
+    './sass/**/*.scss'
+];
+
 function buildScript (file) {
     var props = {
         entries: ['./components/' + file],
         debug: true,
         transform: [reactify]
     };
+
     var bundler = watchify(browserify(props));
 
     function rebundle () {
@@ -64,7 +70,7 @@ function buildImages () {
 }
 
 function buildStyle () {
-    return gulp.src('./components/**/*.scss')
+    return gulp.src(stylesSrc)
         .pipe(sass())
         .pipe(concat('styles.css'))
         .pipe(minifycss())
@@ -89,7 +95,7 @@ gulp.task('build-style', function () {
 });
 
 gulp.task('watch-style', function () {
-    gulp.watch(['./components/**/*.scss'], ['build-style']);
+    gulp.watch(stylesSrc, ['build-style']);
 });
 
 
