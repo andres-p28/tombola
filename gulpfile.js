@@ -11,6 +11,8 @@ var jade = require('gulp-jade');
 var minifycss = require('gulp-minify-css');
 var notify = require('gulp-notify');
 var reactify = require('reactify');
+var rimraf = require('gulp-rimraf');
+var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
@@ -66,6 +68,11 @@ function buildStyle () {
         .pipe(gulp.dest('./build/'));
 }
 
+gulp.task('clean-build', function () {
+    return gulp.src('./build/**/*.*', {read: false})
+        .pipe(rimraf({force: true}));
+});
+
 gulp.task('build-script', function () {
     return buildScript('app.js');
 });
@@ -82,7 +89,7 @@ gulp.task('watch-style', function () {
     gulp.watch(['./src/**/*.scss'], ['build-style']);
 });
 
-gulp.task('default', ['build-script', 'build-view', 'build-style', 'watch-style'], function () {
+gulp.task('open-server', function () {
     if (!argv.production) {
         browsersync.init({
             files: ['./build/bundle.js', './build/styles.css'],
@@ -94,4 +101,10 @@ gulp.task('default', ['build-script', 'build-view', 'build-style', 'watch-style'
             ui: false
         });
     }
+})
+
+gulp.task('default', function () {
+    return runSequence('clean-build', [
+        'build-script', 'build-view', 'build-style', 'watch-style'
+    ], 'open-server');
 });
