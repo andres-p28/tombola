@@ -1,5 +1,6 @@
 var React = require('react');
 var classNames = require('classnames');
+var _ = require('lodash');
 
 const colors = ['primary', 'secondary', 'tertiary'];
 const types = ['squared', 'rounded'];
@@ -16,8 +17,15 @@ var Button = React.createClass({
 
     render: function () {
         return (
-            <button className={this.getClass()}>{this.props.children}</button>
+            <button {...this.getProps()} >{this.props.children}</button>
         );
+    },
+
+    getProps: function () {
+        return {
+            className: this.getClass(),
+            onClick: this.props.onClick
+        };
     },
 
     getClass: function () {
