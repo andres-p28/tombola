@@ -1,3 +1,61 @@
-.button{
+@import 'components/variables';
+@import 'components/mixins';
 
-} 
+$default-font-color: white;
+
+.button{
+    font-size: 15px;
+    box-shadow: none;
+    display: inline-block;
+    padding: 1em 3em;
+    background-color: $color-primary;
+    border: none;
+    color: $default-font-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    @include transition(background-color 200ms ease-in-out);
+
+    //Events
+
+    &:focus{
+        outline: none;
+    }
+    &:hover{
+        background-color: $color-primary-darker;
+    }
+
+    //Sizes
+
+    &--medium{
+        font-size: 0.7em;
+    }
+    &--small{
+        font-size: 0.5em;
+    }
+
+    //Colors
+
+    &--secondary{
+        background-color: $color-secondary;
+        &:hover{
+            background-color: $color-secondary-darker;
+        }
+    }
+    &--tertiary{
+        background-color: $color-tertiary;
+        &:hover{
+            background-color: $color-tertiary-darker;
+        }
+    }
+
+    //Types
+
+    &--rounded{
+        width: 5em;
+        height: 5em;
+        padding: 1em;
+        border-radius: 50%;
+    }
+
+}
