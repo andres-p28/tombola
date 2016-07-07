@@ -17,9 +17,9 @@ var App = React.createClass({
                     <Button buttonType="secondary">Btn color secondary</Button>
                     <Button buttonType="tertiary">Btn color tertiary</Button>
                     <br/>
-                    <Button isRounded="true" buttonType="primary">R</Button>
-                    <Button isRounded="true" buttonType="secondary">RM</Button>
-                    <Button isRounded="true" buttonType="tertiary">RS</Button>
+                    <Button isRounded buttonType="primary">R</Button>
+                    <Button isRounded buttonType="secondary">RM</Button>
+                    <Button isRounded buttonType="tertiary">RS</Button>
                 </div><br/><br/>
                 <div>
                     <Input onChange={this.handleChange}/>

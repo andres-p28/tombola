@@ -5,6 +5,10 @@ var block = 'input';
 
 var Input = React.createClass({
 
+    propTypes: {
+        onChange: React.PropTypes.func.isRequired
+    },
+
     render: function () {
         return (
             <input {...this.getProps()}/>
