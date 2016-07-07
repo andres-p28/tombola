@@ -13,17 +13,13 @@ var App = React.createClass({
                 <div>
                     <Button onClick={this.handleClick}>Default props</Button>
                     <br/>
-                    <Button color="primary">Btn color primary</Button>
-                    <Button color="secondary">Btn color secondary</Button>
-                    <Button color="tertiary">Btn color tertiary</Button>
+                    <Button buttonType="primary">Btn color primary</Button>
+                    <Button buttonType="secondary">Btn color secondary</Button>
+                    <Button buttonType="tertiary">Btn color tertiary</Button>
                     <br/>
-                    <Button>Btn big</Button>
-                    <Button size="medium" color="secondary">Btn medium</Button>
-                    <Button size="small" color="tertiary">Btn small</Button>
-                    <br/>
-                    <Button buttonType="rounded">R</Button>
-                    <Button buttonType="rounded" size="medium" color="secondary">RM</Button>
-                    <Button buttonType="rounded" size="small" color="tertiary">RS</Button>
+                    <Button isRounded="true" buttonType="primary">R</Button>
+                    <Button isRounded="true" buttonType="secondary">RM</Button>
+                    <Button isRounded="true" buttonType="tertiary">RS</Button>
                 </div><br/><br/>
                 <div>
                     <Input onChange={this.handleChange}/>

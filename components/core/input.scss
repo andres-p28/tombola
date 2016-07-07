@@ -1,16 +1,16 @@
 @import 'sass/globals';
 
-$input-height: 40px;
 $input-color: white;
+$input-height: 40px;
 
 .input{
+    background-color: $color-tertiary;
+    border: none;
+    color: $input-color;
+    font-size: 16px;
     height: $input-height;
     line-height: $input-height;
     padding-left: 15px;
-    font-size: 16px;
-    background-color: $color-tertiary;
-    color: $input-color;
-    border: none;
     &:focus{
         outline-color: $color-primary;
     }

@@ -1,7 +1,7 @@
 var React = require('react');
 var classNames = require('classnames');
 
-const block = 'input';
+var block = 'input';
 
 var Input = React.createClass({
 
@@ -17,7 +17,7 @@ var Input = React.createClass({
 
     getProps: function () {
         return {
-            className: this.getClass(), 
+            className: this.getClass(),
             onChange: this.props.onChange
         }
     }
