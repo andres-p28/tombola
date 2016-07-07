@@ -59,7 +59,7 @@ function buildView () {
 }
 
 function buildStyle () {
-    return gulp.src('./src/**/*.scss')
+    return gulp.src('./components/**/*.scss')
         .pipe(sass())
         .pipe(concat('styles.css'))
         .pipe(minifycss())
@@ -79,7 +79,7 @@ gulp.task('build-style', function () {
 });
 
 gulp.task('watch-style', function () {
-    gulp.watch(['./src/**/*.scss'], ['build-style']);
+    gulp.watch(['./components/**/*.scss'], ['build-style']);
 });
 
 gulp.task('default', ['build-script', 'build-view', 'build-style', 'watch-style'], function () {
