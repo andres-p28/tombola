@@ -1,0 +1,28 @@
+@import 'sass/globals';
+
+$title-color: $color-primary;
+$font-size-primary: 30px;
+$font-size-secondary: 20px;
+$font-size-tertiary: 15px;
+
+.title {
+    color: $title-color;
+    margin: 0px 0px 10px 0px;
+
+    &--primary {
+        font-size: $font-size-primary
+    }
+
+    &--secondary {
+        font-size: $font-size-secondary
+    }
+
+    &--secondary {
+        font-size: $font-size-secondary
+    }
+
+    &.result-title {
+        line-height: $font-size-secondary;
+        min-height: $font-size-secondary*4;
+    }
+}

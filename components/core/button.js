@@ -7,6 +7,7 @@ var Button = React.createClass({
 
     propTypes: {
         isRounded: React.PropTypes.bool,
+        isInputButton: React.PropTypes.bool,
         buttonType: React.PropTypes.oneOf(types)
     },
 
@@ -29,7 +30,8 @@ var Button = React.createClass({
             'button-primary': (this.props.buttonType === 'primary'),
             'button-secondary': (this.props.buttonType === 'secondary'),
             'button-tertiary': (this.props.buttonType === 'tertiary'),
-            'button--rounded': (this.props.isRounded)
+            'button--rounded': (this.props.isRounded),
+            'button--input-button': (this.props.isInputButton),
         }, this.props.className);
     }
 

@@ -57,11 +57,24 @@ $font-size-tertiary: 8px;
 
     //Types
 
+    &--input-button{
+        background: none;
+        padding: 0px;
+        position: absolute;
+        right: 10px;
+        top: 13px;
+
+        &:hover{
+            background: none;
+        }
+    }
+
     &--rounded {
         border-radius: 50%;
         height: 5em;
         padding: 1em;
         width: 5em;
     }
+
 
 }

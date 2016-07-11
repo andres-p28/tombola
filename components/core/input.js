@@ -1,5 +1,6 @@
 var React = require('react');
 var classNames = require('classnames');
+var _ = require('lodash');
 
 var block = 'input';
 
@@ -16,10 +17,9 @@ var Input = React.createClass({
     },
 
     getProps: function () {
-        return {
-            className: this.getClass(),
-            onChange: this.props.onChange
-        }
+        return _.assign({}, this.props, {
+            className: this.getClass()
+        });
     },
 
     getClass: function () {

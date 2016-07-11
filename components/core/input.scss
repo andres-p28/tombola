@@ -6,13 +6,19 @@ $input-height: 40px;
 .input {
     background-color: $color-tertiary;
     border: none;
+    box-sizing: border-box;
     color: $input-color;
     font-size: 16px;
     height: $input-height;
     line-height: $input-height;
-    padding-left: 15px;
+    padding: 0px 35px 0px 15px;
 
     &:focus {
         outline-color: $color-primary;
     }
+
+    &.search{
+        width: 100%;
+    }
+
 }
