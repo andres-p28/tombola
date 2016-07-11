@@ -15,15 +15,15 @@ var Input = React.createClass({
         );
     },
 
-    getClass: function () {
-        return classNames(block);
-    },
-
     getProps: function () {
         return {
             className: this.getClass(),
             onChange: this.props.onChange
         }
+    },
+
+    getClass: function () {
+        return classNames(block, this.props.className);
     }
 
 });

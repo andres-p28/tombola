@@ -30,7 +30,7 @@ var Button = React.createClass({
             'button-secondary': (this.props.buttonType === 'secondary'),
             'button-tertiary': (this.props.buttonType === 'tertiary'),
             'button--rounded': (this.props.isRounded)
-        });
+        }, this.props.className);
     }
 
 });

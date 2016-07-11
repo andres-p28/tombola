@@ -11,7 +11,8 @@ $input-height: 40px;
     height: $input-height;
     line-height: $input-height;
     padding-left: 15px;
-    &:focus{
+
+    &:focus {
         outline-color: $color-primary;
     }
 }

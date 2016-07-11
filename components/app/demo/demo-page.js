@@ -26,9 +26,9 @@ var DemoPage = React.createClass({
                     <Input onChange={this.handleChange}/>
                 </div>
                 <div>
-                    <Icon />
-                    <Icon iconSize="medium" />
-                    <Icon iconSize="small" />
+                    <Icon icon="thumbs-up" />
+                    <Icon icon="thumbs-up" iconSize="medium" />
+                    <Icon icon="thumbs-up" iconSize="small" />
                     <Icon icon="times" />
                     <Icon icon="times" iconSize="medium" />
                     <Icon icon="times" iconSize="small" />
