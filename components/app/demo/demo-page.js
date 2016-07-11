@@ -4,6 +4,8 @@ var Button = require('components/core/button');
 var Input = require('components/core/input');
 var Icon = require('components/core/icon');
 
+var VoteButton = require('components/app/common/vote-button');
+
 var DemoPage = React.createClass({
 
     render: function () {
@@ -25,7 +27,12 @@ var DemoPage = React.createClass({
                 </div>
                 <div>
                     <Icon />
-                    <Icon icon="times"/>
+                    <Icon iconSize="medium" />
+                    <Icon iconSize="small" />
+                    <Icon icon="times" />
+                    <Icon icon="times" iconSize="medium" />
+                    <Icon icon="times" iconSize="small" />
+                    <VoteButton />
                 </div>
             </div>
         );
