@@ -13,14 +13,15 @@ var SearchBox = React.createClass({
         return {
             searchValue: '',
             searchResults: [],
-            selectedVideoId: ''
+            selectedVideoId: '',
+            isAddAllowed: false
         }
     },
 
     render: function () {
         return (
             <div className="search-box">
-                <SearchBar onSearch={this.handleSearch} />
+                <SearchBar onSearch={this.handleSearch} allowAdd={this.state.isAddAllowed}/>
                 <SearchResults searchResults={this.state.searchResults} onSelect={this.handleSelect}/>
             </div>
         );
@@ -34,8 +35,22 @@ var SearchBox = React.createClass({
 
     handleSelect: function (videoId) {
         this.setState({
-            selectedVideoId: videoId
+            selectedVideoId: videoId,
+            isAddAllowed: this.isAddAllowed()
         });
+    },
+
+    isAddAllowed: function () {
+        //TODO: Check if video is not on the playlist with a store
+        var allowed = false;
+        var videoIsNotInPlaylist = true;
+
+        if (this.state.selectedVideoId !== '' && videoIsNotInPlaylist) {
+            allowed = true;
+        }
+
+        return allowed;
+
     },
 
     conditionallyDoSearch: function () {
@@ -43,9 +58,13 @@ var SearchBox = React.createClass({
             this.doSearch()
         } else {
             this.setState({
-                searchResults: []
+                searchResults: [],
+                isAddAllowed: false
             })
         }
+
+        this.isAddAllowed();
+
     },
 
     doSearch: function () {

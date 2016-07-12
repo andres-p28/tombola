@@ -1,12 +1,14 @@
 var React = require('react');
 
 //Components
+var Button = require('components/core/button');
 var Input = require('components/core/input');
 var CleanButton = require('components/app/common/clean-button');
 
 var SearchBar = React.createClass({
 
     propTypes: {
+        allowAdd: React.PropTypes.bool.isRequired,
         onSearch: React.PropTypes.func.isRequired
     },
 
@@ -24,6 +26,7 @@ var SearchBar = React.createClass({
                     {this.renderCleanButton()}
                 </div>
                 <div className="search-bar__button">
+                    <Button disabled={!this.props.allowAdd}>ADD TO LIST</Button>
                 </div>
             </div>
         )

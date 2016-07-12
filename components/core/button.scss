@@ -22,6 +22,12 @@ $font-size-tertiary: 8px;
     @include transition(background-color 200ms ease-in-out);
 
     //Events
+    &[disabled]{
+        background-color: lighten($color-tertiary, 20%);
+        &:hover{
+            background-color: lighten($color-tertiary, 20%);
+        }
+    }
 
     &:focus {
         outline: none;
