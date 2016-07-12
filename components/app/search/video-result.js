@@ -19,13 +19,13 @@ var VideoResult = React.createClass({
         var video = this.parseResult(this.props.result)
         return (
             <div {...this.getProps()}>
-                <Title className="single-result__title" titleType="secondary">{video.title}</Title>
+                <Title className="video-result__title" titleType="secondary">{video.title}</Title>
                 <Thumbnail
                     src={video.thumbnail.url}
                     width={video.thumbnail.width}
                     height={video.thumbnail.height}>
                 </Thumbnail>
-                <div className="single-result__duration">5:31</div>
+                <div className="video-result__duration">5:31</div>
             </div>
         );
     },
@@ -39,8 +39,8 @@ var VideoResult = React.createClass({
 
     getClass: function () {
         return classNames({
-            'single-result': true,
-            'single-result--selected': this.props.isSelected
+            'video-result': true,
+            'video-result--selected': this.props.isSelected
         });
     },
 
