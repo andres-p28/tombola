@@ -1,7 +1,5 @@
-var React = require('react');
 var classNames = require('classnames');
-
-var block = 'input';
+var React = require('react');
 
 var Input = React.createClass({
 
@@ -19,11 +17,13 @@ var Input = React.createClass({
         return {
             className: this.getClass(),
             onChange: this.props.onChange
-        }
+        };
     },
 
     getClass: function () {
-        return classNames(block, this.props.className);
+        return classNames({
+            'input': true,
+        }, this.props.className);
     }
 
 });
