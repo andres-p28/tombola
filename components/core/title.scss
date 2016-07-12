@@ -21,8 +21,8 @@ $font-size-tertiary: 15px;
         font-size: $font-size-secondary
     }
 
-    &.result-title {
+    &.single-result__title {
         line-height: $font-size-secondary;
-        min-height: $font-size-secondary*4;
+        height: $font-size-secondary*3;
     }
 }

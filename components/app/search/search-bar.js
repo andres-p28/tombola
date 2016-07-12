@@ -32,7 +32,7 @@ var SearchBar = React.createClass({
     renderCleanButton: function () {
         if (this.state.searchValue) {
             return (
-                <CleanButton onClick={this.onCleanSearch}/>
+                <CleanButton onClick={this.handleCleanSearch}/>
             );
         } else {
             return null;
@@ -46,7 +46,7 @@ var SearchBar = React.createClass({
         }, this.props.onSearch(value));
     },
 
-    onCleanSearch: function () {
+    handleCleanSearch: function () {
         this.setState({
             searchValue: ''
         }, this.props.onSearch(''));
