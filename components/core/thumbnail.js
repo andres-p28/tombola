@@ -27,8 +27,8 @@ var Thumbnail = React.createClass({
 
     getClass: function () {
         return classNames(block, this.props.className, {
-            'thumbnail--loading': !this.state.loaded 
-        })
+            'thumbnail--loading': !this.state.loaded
+        });
     },
 
     handleImageLoaded: function () {
