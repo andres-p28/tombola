@@ -12,15 +12,16 @@ var SearchBox = React.createClass({
     getInitialState: function () {
         return {
             searchValue: '',
-            searchResults: []
+            searchResults: [],
+            selectedVideoId: ''
         }
     },
 
     render: function () {
         return (
             <div className="search-box">
-                <SearchBar onSearch={this.handleSearch} /> 
-                <SearchResults searchResults={this.state.searchResults} />
+                <SearchBar onSearch={this.handleSearch} />
+                <SearchResults searchResults={this.state.searchResults} onSelect={this.handleSelect}/>
             </div>
         );
     },
@@ -28,7 +29,13 @@ var SearchBox = React.createClass({
     handleSearch: function (value) {
         this.setState({
             searchValue: value
-        }, this.conditionallyDoSearch)
+        }, this.conditionallyDoSearch);
+    },
+
+    handleSelect: function (videoId) {
+        this.setState({
+            selectedVideoId: videoId
+        });
     },
 
     conditionallyDoSearch: function () {
