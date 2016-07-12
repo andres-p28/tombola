@@ -1,10 +1,9 @@
-var React = require('react');
-var classNames = require('classnames');
 var _ = require('lodash');
+var classNames = require('classnames');
+var React = require('react');
 
 var icons = ['thumbs-up', 'times'];
 var sizes = ['medium', 'small'];
-var block = 'icon';
 
 var Icon = React.createClass({
 
@@ -27,7 +26,9 @@ var Icon = React.createClass({
     },
 
     getClass: function () {
-        return classNames(block, this.props.className)
+        return classNames({
+            'icon': true,
+        }, this.props.className);
     },
 
     getIcon: function () {
@@ -38,14 +39,27 @@ var Icon = React.createClass({
     },
 
     getSize: function () {
-        var size = 16;
-        if(this.props.iconSize == 'medium'){
-            return {height: size*1.5 + 'px', width: size*1.5 + 'px'}
+        var defaultSize = 32;
+        var size = {
+            height: defaultSize + 'px',
+            width: defaultSize + 'px'
+        };
+
+        if (this.props.iconSize == 'small') {
+            size = {
+                height: defaultSize/2 + 'px',
+                width: defaultSize/2 + 'px'
+            };
         }
-        if(this.props.iconSize == 'small'){
-            return {height: size + 'px', width: size + 'px'}
+
+        if (this.props.iconSize == 'medium') {
+            size = {
+                height: defaultSize/1.5 + 'px',
+                width: defaultSize/1.5 + 'px'
+            };
         }
-        return {height: size*2 + 'px', width: size*2 + 'px'}
+
+        return size;
     }
 
 });
