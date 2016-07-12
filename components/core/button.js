@@ -6,9 +6,9 @@ var types = ['primary', 'secondary', 'tertiary'];
 var Button = React.createClass({
 
     propTypes: {
-        isRounded: React.PropTypes.bool,
+        buttonType: React.PropTypes.oneOf(types),
         isInputButton: React.PropTypes.bool,
-        buttonType: React.PropTypes.oneOf(types)
+        isRounded: React.PropTypes.bool
     },
 
     render: function () {

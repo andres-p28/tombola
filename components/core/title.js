@@ -22,17 +22,22 @@ var Title = React.createClass({
 
     render: function () {
         var Tag = this.getTitleType();
-        return(
+
+        return (
             <Tag {...this.getProps()}>
                 {this.props.children}
             </Tag>
-        )
+        );
     },
 
     getTitleType: function () {
-        if (this.props.titleType === 'primary') return 'h1';
-        if (this.props.titleType === 'secondary') return 'h2';
-        if (this.props.titleType === 'tertiary') return 'h3';
+        var tagsByType = {
+            primary: 'h1',
+            secondary: 'h2',
+            tertiary: 'h3'
+        }
+
+        return tagsByType[this.props.titleType];
     },
 
     getProps: function () {

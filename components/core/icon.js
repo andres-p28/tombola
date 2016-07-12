@@ -22,7 +22,7 @@ var Icon = React.createClass({
     getProps: function () {
         return _.assign({}, {
             className: this.getClass(),
-            src: this.getIcon(), 
+            src: this.getIcon(),
         }, this.getSize());
     },
 
@@ -33,6 +33,7 @@ var Icon = React.createClass({
     getIcon: function () {
         var iconFolder = 'images/icons/';
         var extension = '.svg';
+        
         return iconFolder + this.props.icon + extension;
     },
 
