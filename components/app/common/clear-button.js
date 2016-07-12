@@ -1,16 +1,17 @@
 var React = require('react');
 
-var Icon = require('components/core/icon');
+//Components
 var Button = require('components/core/button');
+var Icon = require('components/core/icon');
 
-var CleanButton = React.createClass({
+var ClearButton = React.createClass({
 
     render: function () {
-        return(
+        return (
             <Button {...this.getProps()}>
                 <Icon icon="times" iconSize="small"/>
             </Button>
-        )
+        );
     },
 
     getProps: function () {
@@ -21,4 +22,4 @@ var CleanButton = React.createClass({
 
 });
 
-module.exports = CleanButton;
+module.exports = ClearButton;

@@ -1,15 +1,17 @@
 var React = require('react');
-var Icon = require('components/core/icon');
+
+//Components
 var Button = require('components/core/button');
+var Icon = require('components/core/icon');
 
 var VoteButton = React.createClass({
 
     render: function () {
-        return(
+        return (
             <Button isRounded>
                 <Icon icon="thumbs-up" />
             </Button>
-        )
+        );
     }
 });
 

@@ -1,10 +1,9 @@
-var React = require('react');
-var classNames = require('classnames');
 var _ = require('lodash');
 var clamp = require('clamp-js');
+var classNames = require('classnames');
+var React = require('react');
 
 var titleTypes = ['primary', 'secondary', 'tertiary'];
-var block = 'title'
 
 var Title = React.createClass({
 
@@ -22,6 +21,7 @@ var Title = React.createClass({
 
     render: function () {
         var Tag = this.getTitleType();
+
         return(
             <Tag {...this.getProps()}>
                 {this.props.children}
@@ -30,9 +30,13 @@ var Title = React.createClass({
     },
 
     getTitleType: function () {
-        if (this.props.titleType === 'primary') return 'h1';
-        if (this.props.titleType === 'secondary') return 'h2';
-        if (this.props.titleType === 'tertiary') return 'h3';
+        var tagsByType = {
+            primary: 'h1',
+            secondary: 'h2',
+            tertiary: 'h3'
+        }
+
+        return tagsByType[this.props.titleType];
     },
 
     getProps: function () {
@@ -43,7 +47,12 @@ var Title = React.createClass({
     },
 
     getClass: function () {
-        return classNames(block, block + '--' + this.props.titleType, this.props.className)
+        var titleTypeModifier = 'title--' + this.props.titleType;
+        
+        return classNames({
+            'title': true,
+            titleTypeModifier: true
+        }, this.props.className)
     },
 
     getReference: function (reference) {

@@ -2,8 +2,8 @@ var React = require('react');
 
 //Components
 var Button = require('components/core/button');
+var ClearButton = require('components/app/common/clear-button');
 var Input = require('components/core/input');
-var CleanButton = require('components/app/common/clean-button');
 
 var SearchBar = React.createClass({
 
@@ -15,7 +15,7 @@ var SearchBar = React.createClass({
     getInitialState: function () {
         return {
             searchValue: ''
-        }
+        };
     },
 
     render: function () {
@@ -23,23 +23,23 @@ var SearchBar = React.createClass({
             <div className="search-bar">
                 <div className="search-bar__input">
                     <Input value={this.state.searchValue} className="search" onChange={this.handleSearch} placeholder="Search for a song..."/>
-                    {this.renderCleanButton()}
+                    {this.renderClearButton()}
                 </div>
                 <div className="search-bar__button">
                     <Button disabled={!this.props.allowAdd}>ADD TO LIST</Button>
                 </div>
             </div>
-        )
+        );
     },
 
-    renderCleanButton: function () {
+    renderClearButton: function () {
+        var clearButton = null;
+
         if (this.state.searchValue) {
-            return (
-                <CleanButton onClick={this.handleCleanSearch}/>
-            );
-        } else {
-            return null;
+            clearButton = <ClearButton onClick={this.handleCleanSearch}/>;
         }
+
+        return clearButton;
     },
 
     handleSearch: function (event) {

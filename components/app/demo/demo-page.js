@@ -1,15 +1,15 @@
 var React = require('react');
 
+//Components
 var Button = require('components/core/button');
-var Input = require('components/core/input');
 var Icon = require('components/core/icon');
-
+var Input = require('components/core/input');
 var VoteButton = require('components/app/common/vote-button');
 
 var DemoPage = React.createClass({
 
     render: function () {
-        return(
+        return (
             <div className="app">
                 <div>
                     <Button onClick={this.handleClick}>Default props</Button>

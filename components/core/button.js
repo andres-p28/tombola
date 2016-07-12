@@ -1,5 +1,5 @@
-var React = require('react');
 var classNames = require('classnames');
+var React = require('react');
 
 var types = ['primary', 'secondary', 'tertiary'];
 
@@ -8,7 +8,7 @@ var Button = React.createClass({
     propTypes: {
         buttonType: React.PropTypes.oneOf(types),
         isInputButton: React.PropTypes.bool,
-        isRounded: React.PropTypes.bool,
+        isRounded: React.PropTypes.bool
     },
 
     render: function () {

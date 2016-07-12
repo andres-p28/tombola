@@ -1,16 +1,17 @@
+var classNames = require('classnames');
 var React = require('react');
 var classNames = require('classnames');
 
 //Components
-var Title = require('components/core/title');
 var Thumbnail = require('components/core/thumbnail');
+var Title = require('components/core/title');
 
-var SingleResult = React.createClass({
+var VideoResult = React.createClass({
 
     propTypes: {
-        result: React.PropTypes.object.isRequired,
+        isSelected: React.PropTypes.bool.isRequired,
         onSelect: React.PropTypes.func.isRequired,
-        isSelected: React.PropTypes.bool.isRequired
+        result: React.PropTypes.object.isRequired
     },
 
     render: function () {
@@ -33,7 +34,7 @@ var SingleResult = React.createClass({
         return {
             className: this.getClass(),
             onClick: this.handleClick
-        }
+        };
     },
 
     getClass: function () {
@@ -44,7 +45,7 @@ var SingleResult = React.createClass({
     },
 
     handleClick: function () {
-        this.props.onSelect(this.props.result.id.videoId)
+        this.props.onSelect(this.props.result.id.videoId);
     },
 
     parseResult: function (result) {
@@ -52,9 +53,9 @@ var SingleResult = React.createClass({
         return {
             title: snippet.title,
             thumbnail: snippet.thumbnails.medium
-        }
+        };
     }
 
 });
 
-module.exports = SingleResult;
+module.exports = VideoResult;

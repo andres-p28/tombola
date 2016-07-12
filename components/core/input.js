@@ -1,8 +1,6 @@
-var React = require('react');
-var classNames = require('classnames');
 var _ = require('lodash');
-
-var block = 'input';
+var classNames = require('classnames');
+var React = require('react');
 
 var Input = React.createClass({
 
@@ -23,7 +21,9 @@ var Input = React.createClass({
     },
 
     getClass: function () {
-        return classNames(block, this.props.className);
+        return classNames({
+            'input': true,
+        }, this.props.className);
     }
 
 });

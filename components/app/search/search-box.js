@@ -11,17 +11,16 @@ var SearchBox = React.createClass({
 
     getInitialState: function () {
         return {
-            searchValue: '',
             searchResults: [],
-            selectedVideoId: '',
-            isAddAllowed: false
-        }
+            searchValue: '',
+            selectedVideoId: ''
+        };
     },
 
     render: function () {
         return (
             <div className="search-box">
-                <SearchBar onSearch={this.handleSearch} allowAdd={this.state.isAddAllowed}/>
+                <SearchBar onSearch={this.handleSearch} />
                 <SearchResults searchResults={this.state.searchResults} onSelect={this.handleSelect}/>
             </div>
         );
@@ -35,44 +34,26 @@ var SearchBox = React.createClass({
 
     handleSelect: function (videoId) {
         this.setState({
-            selectedVideoId: videoId,
-            isAddAllowed: this.isAddAllowed()
+            selectedVideoId: videoId
         });
-    },
-
-    isAddAllowed: function () {
-        //TODO: Check if video is not on the playlist with a store
-        var allowed = false;
-        var videoIsNotInPlaylist = true;
-
-        if (this.state.selectedVideoId !== '' && videoIsNotInPlaylist) {
-            allowed = true;
-        }
-
-        return allowed;
-
     },
 
     conditionallyDoSearch: function () {
         if (this.state.searchValue) {
-            this.doSearch()
+            this.doSearch();
         } else {
             this.setState({
-                searchResults: [],
-                isAddAllowed: false
-            })
+                searchResults: []
+            });
         }
-
-        this.isAddAllowed();
-
-    },
+    }, 
 
     doSearch: function () {
         YoutubeService.search(this.state.searchValue, function(error, results){
             this.setState({
                 searchResults: results.items
             })
-        }.bind(this))
+        }.bind(this));
     }
 });
 
