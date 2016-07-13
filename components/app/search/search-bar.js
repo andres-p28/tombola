@@ -9,6 +9,7 @@ var SearchBar = React.createClass({
 
     propTypes: {
         allowAdd: React.PropTypes.bool.isRequired,
+        onAddSong: React.PropTypes.func.isRequired,
         onSearch: React.PropTypes.func.isRequired
     },
 
@@ -26,7 +27,7 @@ var SearchBar = React.createClass({
                     {this.renderClearButton()}
                 </div>
                 <div className="search-bar__button">
-                    <Button disabled={!this.props.allowAdd}>ADD TO LIST</Button>
+                    <Button disabled={!this.props.allowAdd} onClick={this.props.onAddSong}>ADD TO LIST</Button>
                 </div>
             </div>
         );

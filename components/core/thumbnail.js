@@ -1,21 +1,19 @@
-var React = require('react');
 var _ = require('lodash');
 var classNames = require('classnames');
-
-var block = 'thumbnail';
+var React = require('react');
 
 var Thumbnail = React.createClass({
 
     getInitialState: function () {
         return {
             loaded: false
-        }
+        };
     },
 
     render: function () {
         return (
             <img {...this.getProps()} />
-        )
+        );
     },
 
     getProps: function () {
@@ -26,9 +24,10 @@ var Thumbnail = React.createClass({
     },
 
     getClass: function () {
-        return classNames(block, this.props.className, {
+        return classNames({
+            'thumbnail': true,
             'thumbnail--loading': !this.state.loaded
-        });
+        }, this.props.className);
     },
 
     handleImageLoaded: function () {

@@ -1,12 +1,14 @@
 @import 'sass/globals';
 
-.thumbnail{
+.thumbnail {
+    display: block;
+    margin: 0 auto;
     max-width: 100%;
     opacity: 1;
 
     @include transition(0.2s opacity ease-in-out);
 
-    &--loading{
+    &--loading {
         opacity: 0
     }
 }

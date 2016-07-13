@@ -11,6 +11,8 @@ var SearchBox = React.createClass({
 
     getInitialState: function () {
         return {
+            isAddAllowed: false,
+            mockedVideoSelected: 0,
             searchResults: [],
             searchValue: '',
             selectedVideoId: ''
@@ -20,10 +22,15 @@ var SearchBox = React.createClass({
     render: function () {
         return (
             <div className="search-box">
-                <SearchBar onSearch={this.handleSearch} />
-                <SearchResults searchResults={this.state.searchResults} onSelect={this.handleSelect}/>
+                <SearchBar onSearch={this.handleSearch} allowAdd={this.state.isAddAllowed} onAddSong={this.handleAddSong} />
+                <SearchResults onVote={this.handleVote} searchResults={this.state.searchResults} onSelect={this.handleSelect} isVoteAllowed={!this.state.isAddAllowed} />
             </div>
         );
+    },
+
+    handleAddSong: function () {
+        //Mocked: song added to list
+        console.log('Added!');
     },
 
     handleSearch: function (value) {
@@ -33,8 +40,34 @@ var SearchBox = React.createClass({
     },
 
     handleSelect: function (videoId) {
+        if (this.state.selectedVideoId !== videoId) {
+            this.setState({
+                mockedVideoSelected: this.state.mockedVideoSelected + 1,
+                selectedVideoId: videoId
+            }, this.isAddAllowed);
+        }
+    },
+
+    handleVote: function (videoId) {
+        console.log('Voted! ', videoId);
+    },
+
+    isAddAllowed: function () {
+        var allowed = false;
+        //TODO: check this on a store
+        var isVideoOnPlaylist = false;
+
+        //Mocked: this simulates a video in the playlist
+        if (this.state.mockedVideoSelected % 2 === 0) {
+            isVideoOnPlaylist = true;
+        }
+
+        if (this.state.selectedVideoId !== '' && !isVideoOnPlaylist) {
+            allowed = true;
+        }
+
         this.setState({
-            selectedVideoId: videoId
+            isAddAllowed: allowed
         });
     },
 
@@ -43,16 +76,17 @@ var SearchBox = React.createClass({
             this.doSearch();
         } else {
             this.setState({
-                searchResults: []
+                searchResults: [],
+                isAddAllowed: false
             });
         }
-    }, 
+    },
 
     doSearch: function () {
         YoutubeService.search(this.state.searchValue, function(error, results){
             this.setState({
                 searchResults: results.items
-            })
+            });
         }.bind(this));
     }
 });

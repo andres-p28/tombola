@@ -22,11 +22,11 @@ var Title = React.createClass({
     render: function () {
         var Tag = this.getTitleType();
 
-        return(
+        return (
             <Tag {...this.getProps()}>
                 {this.props.children}
             </Tag>
-        )
+        );
     },
 
     getTitleType: function () {
@@ -34,7 +34,7 @@ var Title = React.createClass({
             primary: 'h1',
             secondary: 'h2',
             tertiary: 'h3'
-        }
+        };
 
         return tagsByType[this.props.titleType];
     },
@@ -48,7 +48,7 @@ var Title = React.createClass({
 
     getClass: function () {
         var titleTypeModifier = 'title--' + this.props.titleType;
-        
+
         return classNames({
             'title': true,
             titleTypeModifier: true

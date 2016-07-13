@@ -8,7 +8,7 @@ var VoteButton = React.createClass({
 
     render: function () {
         return (
-            <Button isRounded>
+            <Button isRounded {...this.props}>
                 <Icon icon="thumbs-up" />
             </Button>
         );
