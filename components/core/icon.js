@@ -2,7 +2,7 @@ var _ = require('lodash');
 var classNames = require('classnames');
 var React = require('react');
 
-var icons = ['thumbs-up', 'times'];
+var icons = ['thumbs-up', 'times', 'add'];
 var sizes = ['medium', 'small'];
 
 var Icon = React.createClass({
