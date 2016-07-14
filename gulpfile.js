@@ -5,6 +5,7 @@ var browserify = require('browserify');
 var browsersync = require('browser-sync');
 var buffer = require('vinyl-buffer');
 var concat = require('gulp-concat');
+var connect = require('gulp-connect');
 var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var jade = require('gulp-jade');
@@ -115,10 +116,18 @@ gulp.task('open-server', function () {
             ui: false
         });
     }
-})
+});
+
+gulp.task('serveprod', function() {
+    connect.server({
+        root: './build/',
+        port: process.env.PORT || 5000,
+        livereload: false
+    });
+});
 
 gulp.task('default', function () {
     return runSequence('clean-build', [
         'build-script', 'build-view', 'build-images', 'build-style', 'watch-style'
-    ], 'open-server');
+    ], 'serveprod');
 });

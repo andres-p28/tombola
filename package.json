@@ -11,6 +11,7 @@
   "dependencies": {
     "clamp-js": "^0.7.0",
     "classnames": "^2.2.5",
+    "gulp-connect": "^4.1.0",
     "jade": "^1.11.0",
     "lodash": "^4.13.1",
     "react": "^15.1.0",
