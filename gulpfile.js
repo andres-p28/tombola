@@ -9,13 +9,16 @@ var gulp = require('gulp');
 var gulpif = require('gulp-if');
 var jade = require('gulp-jade');
 var minifycss = require('gulp-minify-css');
+var nodemon = require('gulp-nodemon');
 var notify = require('gulp-notify');
 var reactify = require('reactify');
 var rimraf = require('gulp-rimraf');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
+var server = require('gulp-express');
 var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
+var url = require('url');
 var watchify = require('watchify');
 
 var stylesSrc = [
@@ -103,6 +106,16 @@ gulp.task('watch-style', function () {
     gulp.watch(stylesSrc, ['build-style']);
 });
 
+gulp.task('watch-server', function () {
+    gulp.watch('./server/**/*.js', ['bs-reload']);
+});
+
+gulp.task('bs-reload', function () {
+    setTimeout(function () {
+        browsersync.reload();
+    }, 1000);
+});
+
 gulp.task('open-server', function () {
     if (!argv.production) {
         browsersync.init({
@@ -115,10 +128,41 @@ gulp.task('open-server', function () {
             ui: false
         });
     }
+});
+
+gulp.task('nodemon', function (cb) {
+    var callbackCalled = false;
+    return nodemon({
+        script: './server/app.js',
+        ignore: ['build/bundle.js', 'build/styles.css', 'components/**']
+    }).on('start', function () {
+        if (!callbackCalled) {
+            callbackCalled = true;
+            cb();
+        }
+    });
 })
+
+gulp.task('browsersync-proxy' ,function () {
+    setTimeout(function () {
+        browsersync.init(null, {
+            files: ['./build/bundle.js', './build/styles.css'],
+            notify: false,
+            proxy: 'http://localhost:3000',
+            ui: false,
+            port: 5000
+        });
+    }, 1000);
+});
 
 gulp.task('default', function () {
     return runSequence('clean-build', [
         'build-script', 'build-view', 'build-images', 'build-style', 'watch-style'
     ], 'open-server');
+});
+
+gulp.task('server', function() {
+    return runSequence('clean-build', [
+        'build-script', 'build-view', 'build-images', 'build-style', 'watch-style', 'watch-server', 'nodemon'
+    ], 'browsersync-proxy')
 });
