@@ -1,0 +1,16 @@
+@import 'sass/globals';
+
+.video-result {
+    background-color: $color-tertiary;
+    box-sizing: border-box;
+    color: $color-primary;
+    float: left;
+    margin: 0.5%;
+    padding: 5px;
+    width: 24%;
+
+    &--duration {
+        padding: 5px 0px;
+        font-size: 18px;
+    }
+}

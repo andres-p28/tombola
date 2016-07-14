@@ -1,3 +1,9 @@
 .icon {
 
+    &.clean-search {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 13px;
+    }
 }

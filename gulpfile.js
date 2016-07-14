@@ -29,7 +29,6 @@ function buildScript (file) {
         debug: true,
         transform: [reactify]
     };
-
     var bundler = watchify(browserify(props));
 
     function rebundle () {

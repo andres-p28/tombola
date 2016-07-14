@@ -1,3 +1,4 @@
+// VENDOR LIBS
 var classNames = require('classnames');
 var React = require('react');
 
@@ -6,8 +7,9 @@ var types = ['primary', 'secondary', 'tertiary'];
 var Button = React.createClass({
 
     propTypes: {
-        isRounded: React.PropTypes.bool,
-        buttonType: React.PropTypes.oneOf(types)
+        buttonType: React.PropTypes.oneOf(types),
+        isInputButton: React.PropTypes.bool,
+        isRounded: React.PropTypes.bool
     },
 
     render: function () {
@@ -29,7 +31,8 @@ var Button = React.createClass({
             'button-primary': (this.props.buttonType === 'primary'),
             'button-secondary': (this.props.buttonType === 'secondary'),
             'button-tertiary': (this.props.buttonType === 'tertiary'),
-            'button--rounded': (this.props.isRounded)
+            'button--rounded': (this.props.isRounded),
+            'button--input-button': (this.props.isInputButton),
         }, this.props.className);
     }
 

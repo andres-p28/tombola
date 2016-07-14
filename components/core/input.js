@@ -1,4 +1,5 @@
 // VENDOR LIBS
+var _ = require('lodash');
 var classNames = require('classnames');
 var React = require('react');
 
@@ -11,7 +12,7 @@ var Input = React.createClass({
 
     getDefaultProps: function () {
         return {
-            inputType: 'input'  
+            inputType: 'input'
         };
     },
 

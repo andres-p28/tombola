@@ -1,3 +1,4 @@
+// VENDOR LIBS
 var _ = require('lodash');
 var classNames = require('classnames');
 var React = require('react');
@@ -34,6 +35,7 @@ var Icon = React.createClass({
     getIcon: function () {
         var iconFolder = 'images/icons/';
         var extension = '.svg';
+
         return iconFolder + this.props.icon + extension;
     },
 

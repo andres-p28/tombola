@@ -1,0 +1,16 @@
+.search-bar {
+    margin: 200px auto 50px;
+    overflow: auto;
+    width: 80%;
+
+    &--input {
+        float: left;
+        position: relative;
+        width: 60%;
+    }
+
+    &--button {
+        float: left;
+        width: 40%;
+    }
+}

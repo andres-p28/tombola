@@ -14,7 +14,7 @@ var DemoPage = React.createClass({
 
     getInitialState: function () {
         return {
-            selectedColor: 'default'  
+            selectedColor: 'default'
         };
     },
 
