@@ -1,8 +1,7 @@
-var React = require('react');
+// VENDOR LIBS
 var _ = require('lodash');
 var classNames = require('classnames');
-
-var block = 'thumbnail';
+var React = require('react');
 
 var Thumbnail = React.createClass({
 
@@ -26,9 +25,10 @@ var Thumbnail = React.createClass({
     },
 
     getClass: function () {
-        return classNames(block, this.props.className, {
+        return classNames({
+            'thumbnail': true,
             'thumbnail--loading': !this.state.loaded
-        });
+        }, this.props.className);
     },
 
     handleImageLoaded: function () {

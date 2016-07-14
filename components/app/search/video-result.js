@@ -1,7 +1,8 @@
+// VENDOR
 var classNames = require('classnames');
 var React = require('react');
 
-//Components
+// CORE COMPONENTS
 var Thumbnail = require('components/core/thumbnail');
 var Title = require('components/core/title');
 
@@ -18,13 +19,13 @@ var VideoResult = React.createClass({
         var video = this.parseResult(this.props.result)
         return (
             <div {...this.getProps()}>
-                <Title className="video-result__title" titleType="secondary">{video.title}</Title>
+                <Title titleType="videoTitle">{video.title}</Title>
                 <Thumbnail
                     src={video.thumbnail.url}
                     width={video.thumbnail.width}
                     height={video.thumbnail.height}>
                 </Thumbnail>
-                <div className="video-result__duration">5:31</div>
+                <div className="video-result--duration">5:31</div>
             </div>
         );
     },

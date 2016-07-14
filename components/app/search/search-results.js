@@ -1,8 +1,11 @@
+// VENDOR
 var React = require('react');
 
-//Components
-var Title = require('components/core/title');
+// APP COMPONENTS
 var VideoResult = require('components/app/search/video-result');
+
+// CORE COMPONENTS
+var Title = require('components/core/title');
 
 var SearchResults = React.createClass({
 

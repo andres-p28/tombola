@@ -21,8 +21,9 @@ $font-size-tertiary: 15px;
         font-size: $font-size-secondary
     }
 
-    &.video-result__title {
-        line-height: $font-size-secondary;
+    &--videoTitle {
+        font-size: $font-size-secondary
         height: $font-size-secondary*3;
+        line-height: $font-size-secondary;
     }
 }

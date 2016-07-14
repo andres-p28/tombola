@@ -1,3 +1,4 @@
+// VENDOR LIBS
 var classNames = require('classnames');
 var React = require('react');
 

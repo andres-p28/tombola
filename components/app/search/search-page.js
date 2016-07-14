@@ -1,6 +1,7 @@
+// VENDOR
 var React = require('react');
 
-//Components
+// COMPONENTS
 var SearchBox = require('components/app/search/search-box');
 
 var SearchPage = React.createClass({

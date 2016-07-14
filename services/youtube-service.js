@@ -1,5 +1,6 @@
-var YoutubeNode = require('youtube-node');
+// VENDOR LIBS
 var Youtube = new YoutubeNode();
+var YoutubeNode = require('youtube-node');
 
 var config = {
     apiKey: 'AIzaSyCyDslI4E40H9dYE_V_18dDlhTCCWOzt4Q',

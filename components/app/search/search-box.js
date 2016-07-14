@@ -1,10 +1,11 @@
+// VENDOR
 var React = require('react');
 
-//Components
+// APP COMPONENTS
 var SearchBar = require('components/app/search/search-bar');
 var SearchResults = require('components/app/search/search-results');
 
-//Services
+// SERVICES
 var YoutubeService = require('services/youtube-service');
 
 var SearchBox = React.createClass({
