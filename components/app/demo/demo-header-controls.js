@@ -30,7 +30,7 @@ var DemoHeaderControls = React.createClass({
             defaultChecked: (this.state.selectedColor === color),
             inputType: 'radio',
             name: 'backgroundColor',
-            onClick: this.handleBackgroundChangeClick.bind(null, color),
+            onChange: this.handleBackgroundChangeClick.bind(null, color),
             value: color
         };
     },

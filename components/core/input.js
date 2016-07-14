@@ -1,7 +1,6 @@
 // VENDOR
 var React = require('react');
 var classNames = require('classnames');
-var _ = require('lodash');
 
 var Input = React.createClass({
 
@@ -23,10 +22,15 @@ var Input = React.createClass({
     },
 
     getProps: function () {
-        return _.extend({}, this.props, {
+        return {
             className: this.getClass(),
-            type: this.props.inputType
-        });
+            defaultChecked: this.props.defaultChecked,
+            defaultValue: this.props.defaultValue,
+            name: this.props.name,
+            onChange: this.props.onChange,
+            type: this.props.inputType,
+            value: this.props.value
+        };
     },
 
     getClass: function () {
