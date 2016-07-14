@@ -1,10 +1,10 @@
 // VENDOR LIBS
-var browserHistory = ReactRouter.browserHistory;
-var IndexRoute = ReactRouter.IndexRoute;
 var React = require('react');
 var ReactRouter = require('react-router');
 var Route = ReactRouter.Route;
 var Router = ReactRouter.Router;
+var browserHistory = ReactRouter.browserHistory;
+var IndexRoute = ReactRouter.IndexRoute;
 
 // APP COMPONENTS
 var DemoPage = require('components/app/demo/demo-page');
