@@ -1,0 +1,36 @@
+@import 'sass/globals';
+
+.demo-page {
+
+    &--header {
+
+        .demo-header {
+
+            &--title {
+                color: $color-primary;
+                display: inline-block;
+            }
+        }
+    }
+
+    &--title {
+        background: $background-color;
+        color: $color-primary;
+        margin: 0 0 10px 0;
+        padding: 5px 0;
+    }
+
+    &--content {
+        background: $background-color-light;
+        display: inline-block;
+        margin-right: 5px;
+        padding: 20px 10px;
+        text-align: center;
+        width: 300px;
+        vertical-align: top;
+
+        &_alternative {
+            background: $background-color-accent;
+        }
+    }
+}

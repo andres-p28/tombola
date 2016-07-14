@@ -15,4 +15,13 @@ $input-height: 40px;
     &:focus {
         outline-color: $color-primary;
     }
+
+    &--radio {
+        height: 20px;
+        vertical-align: middle;
+
+        &:focus {
+            outline: none;
+        }
+    }
 }
