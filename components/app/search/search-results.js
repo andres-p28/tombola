@@ -24,15 +24,13 @@ var SearchResults = React.createClass({
             <div className="search-results">
                 {this.props.searchResults.map(this.renderResult)}
             </div>
-        );
+        ); 
     },
 
     renderResult: function (result, key) {
-        videoId = result.id.videoId;
-
         return (
-            <VideoResult isSelected={this.isSelected(videoId)} key={videoId} result={result} onSelect={this.handleSelect} showVoteButton={this.props.isVoteAllowed} onVote={this.props.onVote} />
-        ); 
+            <VideoResult isSelected={this.isSelected(result.id)} key={result.id} result={result} onSelect={this.handleSelect} showVoteButton={this.props.isVoteAllowed} onVote={this.props.onVote} />
+        );
     },
 
     handleSelect: function (videoId) {

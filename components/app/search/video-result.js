@@ -1,6 +1,6 @@
 var classNames = require('classnames');
 var React = require('react');
-var classNames = require('classnames');
+var Utils = require('services/utils')
 
 //Components
 var Thumbnail = require('components/core/thumbnail');
@@ -18,19 +18,18 @@ var VideoResult = React.createClass({
     },
 
     render: function () {
-        //TODO: make a second call to youtube api to get the duration of each video.
-        var video = this.parseResult(this.props.result);
-        
         return (
             <div {...this.getProps()}>
-                <Title className="video-result__title" titleType="secondary">{video.title}</Title>
+                <Title className="video-result__title" titleType="secondary">{this.props.result.title}</Title>
                 <Thumbnail
-                    src={video.thumbnail.url}
-                    width={video.thumbnail.width}
-                    height={video.thumbnail.height}>
+                    src={this.props.result.thumbnails.medium.url}
+                    width={this.props.result.thumbnails.medium.width}
+                    height={this.props.result.thumbnails.medium.height}>
                 </Thumbnail>
                 {this.renderVoteButton()}
-                <div className="video-result__duration">5:31</div>
+                <div className="video-result__duration">
+                    {Utils.parseISO8601ToString(this.props.result.duration)}
+                </div>
             </div>
         );
     },
@@ -60,20 +59,11 @@ var VideoResult = React.createClass({
     },
 
     handleClick: function () {
-        this.props.onSelect(this.props.result.id.videoId);
+        this.props.onSelect(this.props.result.id);
     },
 
     handleVote: function () {
-        this.props.onVote(this.props.result.id.videoId);
-    },
-
-    parseResult: function (result) {
-        var snippet = result.snippet;
-
-        return {
-            title: snippet.title,
-            thumbnail: snippet.thumbnails.medium
-        };
+        this.props.onVote(this.props.result.id);
     }
 
 });
