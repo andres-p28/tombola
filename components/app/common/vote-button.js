@@ -1,6 +1,7 @@
+// VENDOR
 var React = require('react');
 
-//Components
+// COMPONENTS
 var Button = require('components/core/button');
 var Icon = require('components/core/icon');
 

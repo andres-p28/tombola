@@ -11,7 +11,8 @@ var DemoPage = require('components/app/demo/demo-page');
 var appRoutes = (
     <Router history={browserHistory}>
         <Route path="/" component={Layout}>
-            <IndexRoute component={SearchPage} />
+            <IndexRoute component={DemoPage} />
+
             <Route path="/index.html" component={SearchPage} />
             <Route path="/demo.html" component={DemoPage} />
         </Route>
