@@ -1,6 +1,6 @@
-// VENDOR
-var React = require('react');
+// VENDOR LIBS
 var classNames = require('classnames');
+var React = require('react');
 
 // CORE COMPONENTS
 var Input = require('components/core/input');
@@ -19,7 +19,7 @@ var DemoPage = React.createClass({
     },
 
     render: function () {
-        return(
+        return (
             <div className="demo-page">
                 <div className="demo-page--header">
                     <div className="demo-header">

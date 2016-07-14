@@ -1,11 +1,11 @@
-// VENDOR
+// VENDOR LIBS
 var React = require('react');
 
-// COMPONENTS
+// CORE COMPONENTS
 var Button = require('components/core/button');
 var Icon = require('components/core/icon');
 
-var AddButtonDemo = React.createClass({
+var AddButton = React.createClass({
 
     render: function () {
         return (
@@ -16,4 +16,4 @@ var AddButtonDemo = React.createClass({
     }
 });
 
-module.exports = AddButtonDemo;
+module.exports = AddButton;

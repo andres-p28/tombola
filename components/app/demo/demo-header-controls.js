@@ -1,6 +1,7 @@
-// VENDOR
+// VENDOR LIBS
 var React = require('react');
 
+// CORE COMPONENTS
 var Input = require('components/core/input');
 
 var DemoHeaderControls = React.createClass({

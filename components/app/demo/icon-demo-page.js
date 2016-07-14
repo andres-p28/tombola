@@ -1,4 +1,4 @@
-// VENDOR
+// VENDOR LIBS
 var React = require('react');
 
 // CORE COMPONENTS

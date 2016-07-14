@@ -1,6 +1,6 @@
-// VENDOR
-var React = require('react');
+// VENDOR LIBS
 var classNames = require('classnames');
+var React = require('react');
 
 var Input = React.createClass({
 

@@ -1,7 +1,7 @@
-// VENDOR
+// VENDOR LIBS
 var React = require('react');
 
-// COMPONENTS
+// CORE COMPONENTS
 var Button = require('components/core/button');
 var Icon = require('components/core/icon');
 
