@@ -1,0 +1,10 @@
+@import 'sass/globals';
+
+.demo-header-controls {
+    background: $background-color-light;
+    color: $color-accent;
+    float: right;
+    font-family: sans-serif; // TODO: Add font variables when they are defined.
+    font-size: 12px; // TODO: Add font-sizes variables when they are defined.
+    padding: 5px 15px;
+}

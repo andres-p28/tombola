@@ -21,4 +21,12 @@ $input-height: 50px;
         width: 100%;
     }
 
+    &--radio {
+        height: 20px;
+        vertical-align: middle;
+
+        &:focus {
+            outline: none;
+        }
+    }
 }

@@ -1,8 +1,11 @@
+// VENDOR
 var React = require('react');
 
-//Components
-var Button = require('components/core/button');
+// APP COMPONENTS
 var ClearButton = require('components/app/common/clear-button');
+
+// CORE COMPONENTS
+var Button = require('components/core/button');
 var Input = require('components/core/input');
 
 var SearchBar = React.createClass({
@@ -22,11 +25,11 @@ var SearchBar = React.createClass({
     render: function () {
         return (
             <div className="search-bar">
-                <div className="search-bar__input">
+                <div className="search-bar--input">
                     <Input value={this.state.searchValue} className="search" onChange={this.handleSearch} placeholder="Search for a song..."/>
                     {this.renderClearButton()}
                 </div>
-                <div className="search-bar__button">
+                <div className="search-bar--button">
                     <Button disabled={!this.props.allowAdd} onClick={this.props.onAddSong}>ADD TO LIST</Button>
                 </div>
             </div>

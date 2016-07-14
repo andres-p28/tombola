@@ -13,7 +13,8 @@
 
     @include transition(0.2s background-color ease-in-out);
 
-    &__duration {
+    &--duration {
+        padding: 5px 0px;
         font-size: 18px;
         padding: 5px 0px;
     }
@@ -22,7 +23,7 @@
         background-color: lighten($color-tertiary, 20%);
     }
 
-    &--selected { 
+    &--selected {
         outline: 3px solid $color-primary;
     }
 

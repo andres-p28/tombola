@@ -1,0 +1,12 @@
+@import 'sass/globals';
+
+.button-demo-page {
+    color: $color-accent;
+
+    &--add,
+    &--default,
+    &--rounded,
+    &--vote {
+        margin: 5px 10px 15px;
+    }
+}

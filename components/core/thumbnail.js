@@ -1,3 +1,4 @@
+// VENDOR LIBS
 var _ = require('lodash');
 var classNames = require('classnames');
 var React = require('react');

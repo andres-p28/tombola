@@ -1,45 +1,61 @@
+// VENDOR LIBS
+var classNames = require('classnames');
 var React = require('react');
 
-//Components
-var Button = require('components/core/button');
-var Icon = require('components/core/icon');
+// CORE COMPONENTS
 var Input = require('components/core/input');
-var VoteButton = require('components/app/common/vote-button');
+
+// APP COMPONENTS
+var ButtonDemoPage = require('components/app/demo/button-demo-page');
+var DemoHeaderControls = require('components/app/demo/demo-header-controls');
+var IconDemoPage = require('components/app/demo/icon-demo-page');
 
 var DemoPage = React.createClass({
 
+    getInitialState: function () {
+        return {
+            selectedColor: 'default'
+        };
+    },
+
     render: function () {
         return (
-            <div className="app">
-                <div>
-                    <Button onClick={this.handleClick}>Default props</Button>
-                    <br/>
-                    <Button buttonType="primary">Btn color primary</Button>
-                    <Button buttonType="secondary">Btn color secondary</Button>
-                    <Button buttonType="tertiary">Btn color tertiary</Button>
-                    <br/>
-                    <Button isRounded buttonType="primary">R</Button>
-                    <Button isRounded buttonType="secondary">RM</Button>
-                    <Button isRounded buttonType="tertiary">RS</Button>
-                </div><br/><br/>
-                <div>
+            <div className="demo-page">
+                <div className="demo-page--header">
+                    <div className="demo-header">
+                        <div className="demo-header--title">
+                            <h1>TOMBOLA DEMO PAGE</h1>
+                        </div>
+                        <DemoHeaderControls onChange={this.handleBackgroundColorChange} />
+                    </div>
+                </div>
+                <div className={this.getContentClass()}>
+                    <h2 className="demo-page--title">Buttons</h2>
+                    <ButtonDemoPage />
+                </div>
+                <div className={this.getContentClass()}>
+                    <h2 className="demo-page--title">Inputs</h2>
                     <Input onChange={this.handleChange}/>
                 </div>
-                <div>
-                    <Icon icon="thumbs-up" />
-                    <Icon icon="thumbs-up" iconSize="medium" />
-                    <Icon icon="thumbs-up" iconSize="small" />
-                    <Icon icon="times" />
-                    <Icon icon="times" iconSize="medium" />
-                    <Icon icon="times" iconSize="small" />
-                    <VoteButton />
+                <div className={this.getContentClass()}>
+                    <h2 className="demo-page--title">Icons</h2>
+                    <IconDemoPage />
                 </div>
             </div>
         );
     },
 
-    handleClick: function () {
-        console.log('Click!');
+    getContentClass: function () {
+        return classNames({
+            'demo-page--content': true,
+            'demo-page--content_alternative': (this.state.selectedColor === 'alternative')
+        });
+    },
+
+    handleBackgroundColorChange: function (color) {
+        this.setState({
+            selectedColor: color
+        });
     },
 
     handleChange: function (event) {

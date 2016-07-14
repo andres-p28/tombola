@@ -3,13 +3,13 @@
     overflow: auto;
     width: 80%;
 
-    &__input {
+    &--input {
         float: left;
         position: relative;
         width: 60%;
     }
- 
-    &__button {
+    
+    &--button {
         float: left;
         text-align: center;
         width: 40%;

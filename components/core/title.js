@@ -1,9 +1,10 @@
+// VENDOR LIBS
 var _ = require('lodash');
 var clamp = require('clamp-js');
 var classNames = require('classnames');
 var React = require('react');
 
-var titleTypes = ['primary', 'secondary', 'tertiary'];
+var titleTypes = ['primary', 'secondary', 'tertiary','videoTitle'];
 
 var Title = React.createClass({
 
@@ -33,8 +34,9 @@ var Title = React.createClass({
         var tagsByType = {
             primary: 'h1',
             secondary: 'h2',
-            tertiary: 'h3'
-        };
+            tertiary: 'h3',
+            videoTitle: 'h2'
+        }
 
         return tagsByType[this.props.titleType];
     },
@@ -47,11 +49,12 @@ var Title = React.createClass({
     },
 
     getClass: function () {
-        var titleTypeModifier = 'title--' + this.props.titleType;
-
         return classNames({
             'title': true,
-            titleTypeModifier: true
+            'title--primary': (this.props.titleType === 'primary'),
+            'title--secondary': (this.props.titleType === 'secondary'),
+            'title--tertiary': (this.props.titleType === 'tertiary'),
+            'title--videoTitle': (this.props.titleType === 'videoTitle')
         }, this.props.className)
     },
 
