@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "gulp",
     "run": "gulp --production",
     "postinstall": "gulp"
   },

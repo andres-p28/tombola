@@ -118,8 +118,16 @@ gulp.task('open-server', function () {
     }
 });
 
+gulp.task('serveprod', function() {
+    connect.server({
+        root: './build/',
+        port: process.env.PORT || 5000,
+        livereload: false
+    });
+});
+
 gulp.task('default', function () {
     return runSequence('clean-build', [
         'build-script', 'build-view', 'build-images', 'build-style', 'watch-style'
-    ], 'open-server');
+    ], 'serveprod');
 });
