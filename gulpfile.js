@@ -18,12 +18,18 @@ var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var watchify = require('watchify');
 
+var stylesSrc = [
+    './components/**/*.scss',
+    './sass/**/*.scss'
+];
+
 function buildScript (file) {
     var props = {
         entries: ['./components/' + file],
         debug: true,
         transform: [reactify]
     };
+
     var bundler = watchify(browserify(props));
 
     function rebundle () {
@@ -60,8 +66,13 @@ function buildView () {
         .pipe(gulp.dest('./build/'));
 }
 
+function buildImages () {
+    return gulp.src('./images/**/*')
+        .pipe(gulp.dest('./build/images'))
+}
+
 function buildStyle () {
-    return gulp.src('./src/**/*.scss')
+    return gulp.src(stylesSrc)
         .pipe(sass())
         .pipe(concat('styles.css'))
         .pipe(minifycss())
@@ -81,12 +92,16 @@ gulp.task('build-view', function () {
     return buildView();
 });
 
+gulp.task('build-images', function () {
+    return buildImages();
+});
+
 gulp.task('build-style', function () {
     return buildStyle();
 });
 
 gulp.task('watch-style', function () {
-    gulp.watch(['./src/**/*.scss'], ['build-style']);
+    gulp.watch(stylesSrc, ['build-style']);
 });
 
 gulp.task('open-server', function () {
@@ -105,6 +120,6 @@ gulp.task('open-server', function () {
 
 gulp.task('default', function () {
     return runSequence('clean-build', [
-        'build-script', 'build-view', 'build-style', 'watch-style'
+        'build-script', 'build-view', 'build-images', 'build-style', 'watch-style'
     ], 'open-server');
 });

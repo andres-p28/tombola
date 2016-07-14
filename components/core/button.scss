@@ -1,0 +1,67 @@
+@import 'sass/globals';
+
+$default-font-color: white;
+
+//TBD
+$font-size-primary: 16px;
+$font-size-secondary: 12px;
+$font-size-tertiary: 8px;
+
+.button {
+    background-color: $color-primary;
+    border: none;
+    box-shadow: none;
+    color: $default-font-color;
+    cursor: pointer;
+    display: inline-block;
+    font-size: $font-size-primary;
+    font-weight: bold;
+    padding: 16px 45px;
+    text-transform: uppercase;
+
+    @include transition(background-color 200ms ease-in-out);
+
+    //Events
+
+    &:focus {
+        outline: none;
+    }
+    &:hover {
+        background-color: $color-primary-darker;
+    }
+
+    &-primary {
+        background-color: $color-primary;
+        padding: 15px 45px;
+        &:hover {
+            background-color: $color-primary-darker;
+        }
+    }
+
+    &-secondary {
+        background-color: $color-secondary;
+        font-size: $font-size-secondary;
+        padding: 12px 30px;
+        &:hover {
+            background-color: $color-secondary-darker;
+        }
+    }
+    &-tertiary {
+        background-color: $color-tertiary;
+        font-size: $font-size-tertiary;
+        padding: 10px 20px;
+        &:hover {
+            background-color: $color-tertiary-darker;
+        }
+    }
+
+    //Types
+
+    &--rounded {
+        border-radius: 50%;
+        height: 5em;
+        padding: 1em;
+        width: 5em;
+    }
+
+}
