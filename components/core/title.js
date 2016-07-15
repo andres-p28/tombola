@@ -23,11 +23,11 @@ var Title = React.createClass({
     render: function () {
         var Tag = this.getTitleType();
 
-        return(
+        return (
             <Tag {...this.getProps()}>
                 {this.props.children}
             </Tag>
-        )
+        );
     },
 
     getTitleType: function () {
@@ -36,7 +36,7 @@ var Title = React.createClass({
             secondary: 'h2',
             tertiary: 'h3',
             videoTitle: 'h2'
-        }
+        };
 
         return tagsByType[this.props.titleType];
     },
@@ -49,12 +49,14 @@ var Title = React.createClass({
     },
 
     getClass: function () {
+        var titleType = this.props.titleType;
+
         return classNames({
             'title': true,
-            'title--primary': (this.props.titleType === 'primary'),
-            'title--secondary': (this.props.titleType === 'secondary'),
-            'title--tertiary': (this.props.titleType === 'tertiary'),
-            'title--videoTitle': (this.props.titleType === 'videoTitle')
+            'title--primary': (titleType === 'primary'),
+            'title--secondary': (titleType === 'secondary'),
+            'title--tertiary': (titleType === 'tertiary'),
+            'title--videoTitle': (titleType === 'videoTitle')
         }, this.props.className)
     },
 
@@ -67,7 +69,6 @@ var Title = React.createClass({
             clamp: 'auto'
         });
     }
-
 });
 
 module.exports = Title;

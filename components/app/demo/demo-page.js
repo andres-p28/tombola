@@ -2,13 +2,15 @@
 var classNames = require('classnames');
 var React = require('react');
 
-// CORE COMPONENTS
-var Input = require('components/core/input');
-
 // APP COMPONENTS
 var ButtonDemoPage = require('components/app/demo/button-demo-page');
 var DemoHeaderControls = require('components/app/demo/demo-header-controls');
 var IconDemoPage = require('components/app/demo/icon-demo-page');
+
+// CORE COMPONENTS
+var Button = require('components/core/button');
+var Icon = require('components/core/icon');
+var Input = require('components/core/input');
 
 var DemoPage = React.createClass({
 
@@ -61,7 +63,6 @@ var DemoPage = React.createClass({
     handleChange: function (event) {
         console.log(event.target.value)
     }
-
 });
 
 module.exports = DemoPage;

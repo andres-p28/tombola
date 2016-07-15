@@ -8,13 +8,13 @@ var Thumbnail = React.createClass({
     getInitialState: function () {
         return {
             loaded: false
-        }
+        };
     },
 
     render: function () {
         return (
             <img {...this.getProps()} />
-        )
+        );
     },
 
     getProps: function () {
@@ -36,7 +36,6 @@ var Thumbnail = React.createClass({
             loaded: true
         });
     }
-
 });
 
 module.exports = Thumbnail;

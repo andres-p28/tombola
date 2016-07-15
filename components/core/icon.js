@@ -62,7 +62,6 @@ var Icon = React.createClass({
 
         return size;
     }
-
 });
 
 module.exports = Icon;

@@ -21,7 +21,8 @@ var Button = React.createClass({
     getProps: function () {
         return {
             className: this.getClass(),
-            onClick: this.props.onClick
+            disabled: this.props.disabled,
+            onClick: this.handleClick
         };
     },
 
@@ -34,6 +35,12 @@ var Button = React.createClass({
             'button--rounded': (this.props.isRounded),
             'button--input-button': (this.props.isInputButton),
         }, this.props.className);
+    },
+
+    handleClick: function () {
+        if (!this.props.disabled) {
+            this.props.onClick();
+        }
     }
 
 });

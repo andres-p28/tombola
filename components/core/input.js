@@ -40,7 +40,6 @@ var Input = React.createClass({
             'input--radio': (this.props.inputType === 'radio')
         }, this.props.className);
     }
-
 });
 
 module.exports = Input;

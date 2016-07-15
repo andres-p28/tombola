@@ -26,10 +26,11 @@ var stylesSrc = [
 function buildScript (file) {
     var props = {
         entries: ['./components/' + file],
-        debug: true,
-        transform: [reactify]
+        debug: true
     };
     var bundler = watchify(browserify(props));
+
+    bundler.transform(reactify);
 
     function rebundle () {
         var stream = bundler.bundle();

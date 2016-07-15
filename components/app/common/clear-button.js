@@ -16,11 +16,10 @@ var ClearButton = React.createClass({
     },
 
     getProps: function () {
-        return _.assign({}, this.props, {
+        return _.extend({}, this.props, {
             isInputButton: true
         });
     }
-
 });
 
 module.exports = ClearButton;

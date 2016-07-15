@@ -5,11 +5,14 @@ var React = require('react');
 var ClearButton = require('components/app/common/clear-button');
 
 // CORE COMPONENTS
+var Button = require('components/core/button');
 var Input = require('components/core/input');
 
 var SearchBar = React.createClass({
 
     propTypes: {
+        allowAdd: React.PropTypes.bool.isRequired,
+        onAddSong: React.PropTypes.func.isRequired,
         onSearch: React.PropTypes.func.isRequired
     },
 
@@ -27,6 +30,7 @@ var SearchBar = React.createClass({
                     {this.renderClearButton()}
                 </div>
                 <div className="search-bar--button">
+                    <Button disabled={!this.props.allowAdd} onClick={this.props.onAddSong}>ADD TO LIST</Button>
                 </div>
             </div>
         );
@@ -54,7 +58,6 @@ var SearchBar = React.createClass({
             searchValue: ''
         }, this.props.onSearch(''));
     }
-
 });
 
 module.exports = SearchBar;
