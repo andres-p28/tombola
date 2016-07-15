@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "gulp",
     "run": "gulp --production"
   },
   "author": "Pretenders GLB",
