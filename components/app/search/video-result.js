@@ -1,8 +1,8 @@
+// VENDOR LIBS
 var classNames = require('classnames');
 var React = require('react');
-var classNames = require('classnames');
 
-//Components
+// CORE COMPONENTS
 var Thumbnail = require('components/core/thumbnail');
 var Title = require('components/core/title');
 var VoteButton = require('components/app/common/vote-button');
@@ -23,12 +23,8 @@ var VideoResult = React.createClass({
         
         return (
             <div {...this.getProps()}>
-                <Title className="video-result__title" titleType="secondary">{video.title}</Title>
-                <Thumbnail
-                    src={video.thumbnail.url}
-                    width={video.thumbnail.width}
-                    height={video.thumbnail.height}>
-                </Thumbnail>
+                <Title titleType="videoTitle">{video.title}</Title>
+                <Thumbnail {...this.getThumbnailProps(video.thumbnail)} />
                 {this.renderVoteButton()}
                 <div className="video-result__duration">5:31</div>
             </div>
@@ -59,6 +55,14 @@ var VideoResult = React.createClass({
         });
     },
 
+    getThumbnailProps: function (thumbnail) {
+        return {
+            height: thumbnail.height,
+            src: thumbnail.url,
+            width: thumbnail.width
+        };
+    },
+
     handleClick: function () {
         this.props.onSelect(this.props.result.id.videoId);
     },
@@ -75,7 +79,6 @@ var VideoResult = React.createClass({
             thumbnail: snippet.thumbnails.medium
         };
     }
-
 });
 
 module.exports = VideoResult;

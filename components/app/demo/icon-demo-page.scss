@@ -1,0 +1,10 @@
+@import 'sass/globals';
+
+.icon-demo-page {
+    color: $color-accent;
+
+    &--thumbs,
+    &--times {
+        margin: 5px 10px 15px;
+    }
+}
