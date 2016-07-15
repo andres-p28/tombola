@@ -133,6 +133,7 @@ gulp.task('open-server', function () {
 
 gulp.task('nodemon', function (cb) {
     var callbackCalled = false;
+
     return nodemon({
         script: './server/app.js',
         ignore: ['build/bundle.js', 'build/styles.css', 'components/**']
@@ -142,7 +143,7 @@ gulp.task('nodemon', function (cb) {
             cb();
         }
     });
-})
+});
 
 gulp.task('browsersync-proxy' ,function () {
     setTimeout(function () {
