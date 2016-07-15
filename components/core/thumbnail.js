@@ -1,3 +1,4 @@
+// VENDOR LIBS
 var _ = require('lodash');
 var classNames = require('classnames');
 var React = require('react');
@@ -35,7 +36,6 @@ var Thumbnail = React.createClass({
             loaded: true
         });
     }
-
 });
 
 module.exports = Thumbnail;

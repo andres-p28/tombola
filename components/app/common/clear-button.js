@@ -1,6 +1,7 @@
+// VENDOR LIBS
 var React = require('react');
 
-//Components
+// CORE COMPONENTS
 var Button = require('components/core/button');
 var Icon = require('components/core/icon');
 
@@ -15,11 +16,10 @@ var ClearButton = React.createClass({
     },
 
     getProps: function () {
-        return _.assign({}, this.props, {
+        return _.extend({}, this.props, {
             isInputButton: true
         });
-    },
-
+    }
 });
 
 module.exports = ClearButton;
