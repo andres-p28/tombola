@@ -156,13 +156,19 @@ gulp.task('browsersync-proxy' ,function () {
 });
 
 gulp.task('default', function () {
-    return runSequence('clean-build', [
+    return runSequence([
         'build-script', 'build-view', 'build-images', 'build-style', 'watch-style'
-    ], 'open-server');
+    ]);
 });
 
 gulp.task('server', function() {
     return runSequence('clean-build', [
         'build-script', 'build-view', 'build-images', 'build-style', 'watch-style', 'watch-server', 'nodemon'
     ], 'browsersync-proxy')
+});
+
+gulp.task('heroku', function () {
+    return runSequence('clean-build', [
+        'build-script', 'build-view', 'build-images', 'build-style', 'watch-style'
+    ]);
 });
