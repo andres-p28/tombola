@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "gulp --production && node ./server/app.js",
+    "postinstall": "gulp heroku --production && node ./server/app.js",
     "run": "gulp --production"
   },
   "author": "Pretenders GLB",
