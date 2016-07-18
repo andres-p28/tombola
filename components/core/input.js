@@ -29,6 +29,7 @@ var Input = React.createClass({
             defaultValue: this.props.defaultValue,
             name: this.props.name,
             onChange: this.props.onChange,
+            placeholder: this.props.placeholder,
             type: this.props.inputType,
             value: this.props.value
         };

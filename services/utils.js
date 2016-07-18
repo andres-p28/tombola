@@ -1,4 +1,4 @@
-var Utils = function(){
+var Utils = function () {
 
 };
 
@@ -16,7 +16,7 @@ Utils.prototype.parseISO8601ToString = function (date) {
           if (hours < 10) {
               hours = '0' + hours;
           }
-          
+
           hours += ':';
       }
       if (matches[2]) {
@@ -39,7 +39,6 @@ Utils.prototype.parseISO8601ToString = function (date) {
     }
 
     return hours + minutes + seconds;
-
 };
 
 module.exports = new Utils();

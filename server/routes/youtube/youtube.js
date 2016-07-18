@@ -1,5 +1,6 @@
-var google = require('googleapis');
+// VENDOR LIBS
 var _ = require('lodash');
+var google = require('googleapis');
 
 var config = {
     apiKey: 'AIzaSyCyDslI4E40H9dYE_V_18dDlhTCCWOzt4Q',
@@ -10,10 +11,10 @@ var config = {
         type: 'video',
         videoDuration: 'short',
         videoLicense: 'youtube'
-    } 
+    }
 };
 
-var Youtube = function(){
+var Youtube = function () {
     this.api = google.youtube({
         version: 'v3',
         auth: config.apiKey
@@ -86,7 +87,7 @@ var filterVideoData = function (video) {
         duration: video.contentDetails.duration,
         title: video.snippet.title,
         thumbnails: video.snippet.thumbnails
-    }
+    };
 };
 
 module.exports = new Youtube();

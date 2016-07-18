@@ -18,7 +18,6 @@ var sass = require('gulp-sass');
 var server = require('gulp-express');
 var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
-var url = require('url');
 var watchify = require('watchify');
 
 var stylesSrc = [

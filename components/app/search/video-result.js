@@ -21,10 +21,10 @@ var VideoResult = React.createClass({
     render: function () {
         return (
             <div {...this.getProps()}>
-                <Title titleType="videoTitle">{video.title}</Title>
-                <Thumbnail {...this.getThumbnailProps(video.thumbnail)} />
+                <Title titleType="videoTitle">{this.props.result.title}</Title>
+                <Thumbnail {...this.getThumbnailProps(this.props.result.thumbnails.medium)} />
                 {this.renderVoteButton()}
-                <div className="video-result__duration">
+                <div className="video-result--duration">
                     {Utils.parseISO8601ToString(this.props.result.duration)}
                 </div>
             </div>
@@ -41,7 +41,7 @@ var VideoResult = React.createClass({
         return voteButton;
     },
 
-    getProps: function() {
+    getProps: function () {
         return {
             className: this.getClass(),
             onClick: this.handleClick

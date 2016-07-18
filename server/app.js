@@ -1,3 +1,4 @@
+// VENDOR LIBS
 var bodyParser = require('body-parser');
 var cors = require('cors')
 var express = require('express');
@@ -11,8 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../build')));
 app.use('/api', youtubeApi);
 
-
-app.get('/', function(req, res) {
+app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
