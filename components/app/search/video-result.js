@@ -1,7 +1,7 @@
 // VENDOR LIBS
 var classNames = require('classnames');
 var React = require('react');
-var classNames = require('classnames');
+var Utils = require('services/utils')
 
 // CORE COMPONENTS
 var Thumbnail = require('components/core/thumbnail');
@@ -19,19 +19,18 @@ var VideoResult = React.createClass({
     },
 
     render: function () {
-        //TODO: make a second call to youtube api to get the duration of each video.
-        var video = this.parseResult(this.props.result);
-
         return (
             <div {...this.getProps()}>
-                <Title titleType="videoTitle">{video.title}</Title>
+                <Title titleType="videoTitle">{this.props.result.title}</Title>
                 <Thumbnail
-                    src={video.thumbnail.url}
-                    width={video.thumbnail.width}
-                    height={video.thumbnail.height}>
+                    src={this.props.result.thumbnails.medium.url}
+                    width={this.props.result.thumbnails.medium.width}
+                    height={this.props.result.thumbnails.medium.height}>
                 </Thumbnail>
                 {this.renderVoteButton()}
-                <div className="video-result--duration">5:31</div>
+                <div className="video-result--duration">
+                    {Utils.parseISO8601ToString(this.props.result.duration)}
+                </div>
             </div>
         );
     },
@@ -46,7 +45,7 @@ var VideoResult = React.createClass({
         return voteButton;
     },
 
-    getProps: function() {
+    getProps: function () {
         return {
             className: this.getClass(),
             onClick: this.handleClick
@@ -61,20 +60,11 @@ var VideoResult = React.createClass({
     },
 
     handleClick: function () {
-        this.props.onSelect(this.props.result.id.videoId);
+        this.props.onSelect(this.props.result.id);
     },
 
     handleVote: function () {
-        this.props.onVote(this.props.result.id.videoId);
-    },
-
-    parseResult: function (result) {
-        var snippet = result.snippet;
-
-        return {
-            title: snippet.title,
-            thumbnail: snippet.thumbnails.medium
-        };
+        this.props.onVote(this.props.result.id);
     }
 
 });

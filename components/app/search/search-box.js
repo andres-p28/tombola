@@ -84,9 +84,9 @@ var SearchBox = React.createClass({
     },
 
     doSearch: function () {
-        YoutubeService.search(this.state.searchValue, function(error, results){
+        YoutubeService.search(this.state.searchValue, function(results){
             this.setState({
-                searchResults: results.items
+                searchResults: results
             });
         }.bind(this));
     }

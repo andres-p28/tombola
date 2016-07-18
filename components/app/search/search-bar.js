@@ -26,7 +26,7 @@ var SearchBar = React.createClass({
         return (
             <div className="search-bar">
                 <div className="search-bar--input">
-                    <Input value={this.state.searchValue} className="search" onChange={this.handleSearch} placeholder="Search for a song..."/>
+                    <Input {...this.getInputProps()} />
                     {this.renderClearButton()}
                 </div>
                 <div className="search-bar--button">
@@ -44,6 +44,15 @@ var SearchBar = React.createClass({
         }
 
         return clearButton;
+    },
+
+    getInputProps: function () {
+        return {
+            className: 'search',
+            onChange: this.handleSearch,
+            placeholder: 'Search for a song...',
+            value: this.state.searchValue
+        };
     },
 
     handleSearch: function (event) {
