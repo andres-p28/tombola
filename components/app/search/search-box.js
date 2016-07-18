@@ -1,10 +1,11 @@
+// VENDOR LIBS
 var React = require('react');
 
-//Components
+// APP COMPONENTS
 var SearchBar = require('components/app/search/search-bar');
 var SearchResults = require('components/app/search/search-results');
 
-//Services
+// SERVICES
 var YoutubeService = require('services/youtube-service');
 
 var SearchBox = React.createClass({
@@ -29,7 +30,6 @@ var SearchBox = React.createClass({
     },
 
     handleAddSong: function () {
-        //Mocked: song added to list
         console.log('Added!');
     },
 

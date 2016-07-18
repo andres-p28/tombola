@@ -11,9 +11,8 @@
     position: relative;
     width: 24%;
 
-    @include transition(0.2s background-color ease-in-out);
-
-    &__duration {
+    &--duration {
+        padding: 5px 0px;
         font-size: 18px;
         padding: 5px 0px;
     }
@@ -25,5 +24,4 @@
     &--selected { 
         outline: 3px solid $color-primary;
     }
-
 }

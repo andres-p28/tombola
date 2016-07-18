@@ -1,3 +1,4 @@
+// VENDOR LIBS
 var React = require('react');
 
 var Layout = React.createClass({

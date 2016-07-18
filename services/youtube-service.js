@@ -1,6 +1,5 @@
+// VENDOR LIBS
 var request = require('reqwest');
-var YoutubeNode = require('youtube-node');
-var Youtube = new YoutubeNode();
 
 var url = 'http://localhost:3000/api/search';
 

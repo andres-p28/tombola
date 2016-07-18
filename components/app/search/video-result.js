@@ -1,8 +1,9 @@
+// VENDOR LIBS
 var classNames = require('classnames');
 var React = require('react');
 var Utils = require('services/utils')
 
-//Components
+// CORE COMPONENTS
 var Thumbnail = require('components/core/thumbnail');
 var Title = require('components/core/title');
 var VoteButton = require('components/app/common/vote-button');
@@ -20,12 +21,8 @@ var VideoResult = React.createClass({
     render: function () {
         return (
             <div {...this.getProps()}>
-                <Title className="video-result__title" titleType="secondary">{this.props.result.title}</Title>
-                <Thumbnail
-                    src={this.props.result.thumbnails.medium.url}
-                    width={this.props.result.thumbnails.medium.width}
-                    height={this.props.result.thumbnails.medium.height}>
-                </Thumbnail>
+                <Title titleType="videoTitle">{video.title}</Title>
+                <Thumbnail {...this.getThumbnailProps(video.thumbnail)} />
                 {this.renderVoteButton()}
                 <div className="video-result__duration">
                     {Utils.parseISO8601ToString(this.props.result.duration)}
@@ -58,6 +55,14 @@ var VideoResult = React.createClass({
         });
     },
 
+    getThumbnailProps: function (thumbnail) {
+        return {
+            height: thumbnail.height,
+            src: thumbnail.url,
+            width: thumbnail.width
+        };
+    },
+
     handleClick: function () {
         this.props.onSelect(this.props.result.id);
     },
@@ -65,7 +70,6 @@ var VideoResult = React.createClass({
     handleVote: function () {
         this.props.onVote(this.props.result.id);
     }
-
 });
 
 module.exports = VideoResult;
