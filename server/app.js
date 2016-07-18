@@ -7,9 +7,8 @@ var path = require('path');
 var youtubeApi = require('./routes/youtube/index');
 
 var app = express();
-
 var port;
-console.log(argv);
+
 if (argv.production) {
     port = process.env.PORT || 8080;
 } else {

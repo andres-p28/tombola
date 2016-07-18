@@ -151,7 +151,7 @@ gulp.task('browsersync-proxy' ,function () {
         files: ['./build/bundle.js', './build/styles.css'],
         notify: false,
         proxy: {
-            target: 'http://localhost:3000'
+            target: proxyServer
         },
         ui: false,
         port: 5000
@@ -177,7 +177,7 @@ gulp.task('default', function () {
 gulp.task('server', function() {
     return runSequence('clean-build', [
         'build-script', 'build-view', 'build-images', 'build-style', 'watch-style', 'watch-server', 'nodemon'
-    ], 'browsersync-proxy')
+    ], 'browsersync-proxy');
 });
 
 gulp.task('heroku', ['build-script', 'build-view', 'build-images', 'build-style'], function () {
