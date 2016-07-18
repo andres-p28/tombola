@@ -1,6 +1,7 @@
 // VENDOR LIBS
 var classNames = require('classnames');
 var React = require('react');
+var Utils = require('services/utils')
 
 // CORE COMPONENTS
 var Thumbnail = require('components/core/thumbnail');
@@ -18,15 +19,14 @@ var VideoResult = React.createClass({
     },
 
     render: function () {
-        //TODO: make a second call to youtube api to get the duration of each video.
-        var video = this.parseResult(this.props.result);
-        
         return (
             <div {...this.getProps()}>
-                <Title titleType="videoTitle">{video.title}</Title>
-                <Thumbnail {...this.getThumbnailProps(video.thumbnail)} />
+                <Title titleType="videoTitle">{this.props.result.title}</Title>
+                <Thumbnail {...this.getThumbnailProps(this.props.result.thumbnails.medium)} />
                 {this.renderVoteButton()}
-                <div className="video-result__duration">5:31</div>
+                <div className="video-result--duration">
+                    {Utils.parseISO8601ToString(this.props.result.duration)}
+                </div>
             </div>
         );
     },
@@ -41,7 +41,7 @@ var VideoResult = React.createClass({
         return voteButton;
     },
 
-    getProps: function() {
+    getProps: function () {
         return {
             className: this.getClass(),
             onClick: this.handleClick
@@ -64,20 +64,11 @@ var VideoResult = React.createClass({
     },
 
     handleClick: function () {
-        this.props.onSelect(this.props.result.id.videoId);
+        this.props.onSelect(this.props.result.id);
     },
 
     handleVote: function () {
-        this.props.onVote(this.props.result.id.videoId);
-    },
-
-    parseResult: function (result) {
-        var snippet = result.snippet;
-
-        return {
-            title: snippet.title,
-            thumbnail: snippet.thumbnails.medium
-        };
+        this.props.onVote(this.props.result.id);
     }
 });
 
