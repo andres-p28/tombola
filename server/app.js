@@ -5,7 +5,7 @@ var path = require('path');
 var youtubeApi = require('./routes/youtube/index');
 
 var app = express();
-var PORT = 3000;
+var port = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -17,4 +17,6 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
-app.listen(PORT);
+app.listen(port, function() {
+    console.log('App listening on port', port);
+});
