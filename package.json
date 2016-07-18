@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "gulp heroku --production",
-    "run": "node server/app.js"
+    "start": "node server/app.js"
   },
   "author": "Pretenders GLB",
   "license": "ISC",
