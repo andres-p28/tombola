@@ -167,8 +167,6 @@ gulp.task('server', function() {
     ], 'browsersync-proxy')
 });
 
-gulp.task('heroku', function () {
-    return runSequence('clean-build', [
-        'build-script', 'build-view', 'build-images', 'build-style', 'watch-style'
-    ]);
+gulp.task('heroku', ['build-script', 'build-view', 'build-images', 'build-style'], function () {
+    process.exit(0);
 });
