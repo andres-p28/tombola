@@ -11,6 +11,7 @@ var jade = require('gulp-jade');
 var minifycss = require('gulp-minify-css');
 var nodemon = require('gulp-nodemon');
 var notify = require('gulp-notify');
+var proxyMiddleware = require('http-proxy-middleware');
 var reactify = require('reactify');
 var rimraf = require('gulp-rimraf');
 var runSequence = require('run-sequence');
@@ -132,7 +133,6 @@ gulp.task('open-server', function () {
 
 gulp.task('nodemon', function (cb) {
     var callbackCalled = false;
-
     return nodemon({
         script: './server/app.js',
         ignore: ['build/bundle.js', 'build/styles.css', 'components/**']
@@ -145,15 +145,27 @@ gulp.task('nodemon', function (cb) {
 });
 
 gulp.task('browsersync-proxy' ,function () {
+    var proxyServer = 'http://localhost:3000';
+    var apiProxy;
+    var browsersyncConfig = {
+        files: ['./build/bundle.js', './build/styles.css'],
+        notify: false,
+        proxy: {
+            target: 'http://localhost:3000'
+        },
+        ui: false,
+        port: 5000
+    };
+
+    if (argv.production) {
+        var apiProxy = proxyMiddleware('/api', {target: proxyServer});
+        browsersyncConfig.proxy.middleware = [apiProxy];
+    }
+
     setTimeout(function () {
-        browsersync.init(null, {
-            files: ['./build/bundle.js', './build/styles.css'],
-            notify: false,
-            proxy: 'http://localhost:3000',
-            ui: false,
-            port: 5000
-        });
+        browsersync(browsersyncConfig);
     }, 1000);
+
 });
 
 gulp.task('default', function () {
