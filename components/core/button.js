@@ -29,6 +29,7 @@ var Button = React.createClass({
     getClass: function () {
         return classNames({
             'button': true,
+            'button-add': (this.props.buttonType === 'add-button'),
             'button-primary': (this.props.buttonType === 'primary'),
             'button-secondary': (this.props.buttonType === 'secondary'),
             'button-tertiary': (this.props.buttonType === 'tertiary'),

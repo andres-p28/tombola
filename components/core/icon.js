@@ -10,7 +10,8 @@ var Icon = React.createClass({
 
     propTypes: {
         icon: React.PropTypes.oneOf(icons).isRequired,
-        iconSize: React.PropTypes.oneOf(sizes)
+        iconSize: React.PropTypes.oneOf(sizes),
+        iconType: React.PropTypes.string
     },
 
     render: function () {
@@ -29,6 +30,7 @@ var Icon = React.createClass({
     getClass: function () {
         return classNames({
             'icon': true,
+            'icon-in-button': (this.props.iconType === 'iconInButton')
         }, this.props.className);
     },
 
