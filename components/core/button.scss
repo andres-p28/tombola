@@ -37,6 +37,16 @@ $font-size-tertiary: 8px;
         background-color: $color-primary-darker;
     }
 
+    &-add {
+        background-color: $color-primary;
+        line-height: 24px;
+        padding: 13px 20px;
+
+        &:hover {
+            background-color: $color-primary-darker;
+        }
+    }
+
     &-primary {
         background-color: $color-primary;
         padding: 15px 45px;
