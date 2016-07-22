@@ -10,7 +10,7 @@ var AddButton = React.createClass({
     render: function () {
         return (
             <Button {...this.props} buttonType="add-button">
-                <Icon iconType="iconInButton" iconSize="medium" icon="add" /> <span>Add to List</span>
+                <Icon iconType="iconInButton" iconSize="medium" icon="add" /> Add to List
             </Button>
         );
     }

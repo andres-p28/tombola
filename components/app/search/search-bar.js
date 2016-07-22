@@ -12,7 +12,7 @@ var Input = require('components/core/input');
 var SearchBar = React.createClass({
 
     propTypes: {
-        allowAdd: React.PropTypes.bool.isRequired,
+        addDisabled: React.PropTypes.bool.isRequired,
         onAddSong: React.PropTypes.func.isRequired,
         onSearch: React.PropTypes.func.isRequired
     },
@@ -58,7 +58,7 @@ var SearchBar = React.createClass({
 
     getAddButtonProps: function () {
         return {
-            disabled: !this.props.allowAdd,
+            disabled: (this.props.addDisabled),
             onClick: this.props.onAddSong
         };
     },

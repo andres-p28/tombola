@@ -1,5 +1,6 @@
 // VENDOR LIBS
 var React = require('react');
+var _ = require('lodash');
 
 // APP COMPONENTS
 var SearchBar = require('components/app/search/search-bar');
@@ -12,19 +13,18 @@ var SearchBox = React.createClass({
 
     getInitialState: function () {
         return {
-            isAddAllowed: false,
             mockedVideoSelected: 0,
             searchResults: [],
             searchValue: '',
-            selectedVideoId: ''
+            selectedVideoId: null
         };
     },
 
     render: function () {
         return (
             <div className="search-box">
-                <SearchBar onSearch={this.handleSearch} allowAdd={this.state.isAddAllowed} onAddSong={this.handleAddSong} />
-                <SearchResults onVote={this.handleVote} searchResults={this.state.searchResults} onSelect={this.handleSelect} isVoteAllowed={!this.state.isAddAllowed} />
+                <SearchBar onSearch={this.handleSearch} addDisabled={this.isAddDisabled()} onAddSong={this.handleAddSong} />
+                <SearchResults onVote={this.handleVote} searchResults={this.state.searchResults} onSelect={this.handleSelect} isVoteAllowed={this.isAddDisabled()} />
             </div>
         );
     },
@@ -44,7 +44,7 @@ var SearchBox = React.createClass({
             this.setState({
                 mockedVideoSelected: this.state.mockedVideoSelected + 1,
                 selectedVideoId: videoId
-            }, this.isAddAllowed);
+            });
         }
     },
 
@@ -52,23 +52,9 @@ var SearchBox = React.createClass({
         console.log('Voted! ', videoId);
     },
 
-    isAddAllowed: function () {
-        var allowed = false;
-        //TODO: check this on a store
-        var isVideoOnPlaylist = false;
-
-        //Mocked: this simulates a video in the playlist
-        if (this.state.mockedVideoSelected % 2 === 0) {
-            isVideoOnPlaylist = true;
-        }
-
-        if (this.state.selectedVideoId !== '' && !isVideoOnPlaylist) {
-            allowed = true;
-        }
-
-        this.setState({
-            isAddAllowed: allowed
-        });
+    isAddDisabled: function () {
+        // TODO: Remove mockedVideoSelected when real store is created.
+        return (_.isNull(this.state.selectedVideoId) || this.state.mockedVideoSelected % 2 === 0);
     },
 
     conditionallyDoSearch: function () {
