@@ -8,6 +8,12 @@ var SearchResults = require('components/app/search/search-results');
 // SERVICES
 var YoutubeService = require('services/youtube-service');
 
+// STORES
+var PlaylistStore = require('stores/playlist-store');
+
+// ACTIONS
+var PlaylistActions = require('actions/playlist-actions');
+
 var SearchBox = React.createClass({
 
     getInitialState: function () {
@@ -16,8 +22,18 @@ var SearchBox = React.createClass({
             mockedVideoSelected: 0,
             searchResults: [],
             searchValue: '',
-            selectedVideoId: ''
+            selectedVideoId: '',
+            songsInPlaylist: []
         };
+    },
+
+    componentDidMount: function () {
+        this.getSongsInPlaylist();
+        PlaylistStore.addChangeListener(this.onAddedSong);
+    },
+
+    componentWillUnmount: function () {
+        PlaylistStore.removeChangeListener(this.onAddedSong);
     },
 
     render: function () {
@@ -29,8 +45,23 @@ var SearchBox = React.createClass({
         );
     },
 
+    getSongsInPlaylist: function () {
+        this.setState({
+            songsInPlaylist: PlaylistStore.getSongsInPlaylist()
+        })
+    },
+
+    onAddedSong: function () {
+        this.getSongsInPlaylist();
+        this.setState({
+            isAddAllowed: false
+        })
+    },
+
     handleAddSong: function () {
-        console.log('Added!');
+        PlaylistActions.addSong({
+            videoId: this.state.selectedVideoId
+        });
     },
 
     handleSearch: function (value) {
@@ -54,13 +85,7 @@ var SearchBox = React.createClass({
 
     isAddAllowed: function () {
         var allowed = false;
-        //TODO: check this on a store
-        var isVideoOnPlaylist = false;
-
-        //Mocked: this simulates a video in the playlist
-        if (this.state.mockedVideoSelected % 2 === 0) {
-            isVideoOnPlaylist = true;
-        }
+        var isVideoOnPlaylist = this.isVideoOnPlaylist(this.state.selectedVideoId);
 
         if (this.state.selectedVideoId !== '' && !isVideoOnPlaylist) {
             allowed = true;
@@ -69,6 +94,10 @@ var SearchBox = React.createClass({
         this.setState({
             isAddAllowed: allowed
         });
+    },
+
+    isVideoOnPlaylist: function () {
+        return PlaylistStore.isVideoOnPlaylist(this.state.selectedVideoId);
     },
 
     conditionallyDoSearch: function () {
