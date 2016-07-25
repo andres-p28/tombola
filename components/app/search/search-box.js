@@ -1,5 +1,6 @@
 // VENDOR LIBS
 var React = require('react');
+var request = require('reqwest');
 
 // APP COMPONENTS
 var SearchBar = require('components/app/search/search-bar');
@@ -19,7 +20,6 @@ var SearchBox = React.createClass({
     getInitialState: function () {
         return {
             isAddAllowed: false,
-            mockedVideoSelected: 0,
             searchResults: [],
             searchValue: '',
             selectedVideoId: '',
@@ -73,7 +73,6 @@ var SearchBox = React.createClass({
     handleSelect: function (videoId) {
         if (this.state.selectedVideoId !== videoId) {
             this.setState({
-                mockedVideoSelected: this.state.mockedVideoSelected + 1,
                 selectedVideoId: videoId
             }, this.isAddAllowed);
         }
