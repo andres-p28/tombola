@@ -36,9 +36,9 @@ UserStore.prototype.loginUser = function loginUser () {
                 this.currentUser = profile;
                 this.emitChange();
             }.bind(this));
-            console.log('Token set');
         } else {
-            console.log('No token set');
+            this.currentUser = null;
+            this.emitChange();
         }
     }
 };

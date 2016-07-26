@@ -1,0 +1,15 @@
+.user-menu {
+
+    &--user-info {
+        color: white;
+        display: inline-block;
+        text-align: left;
+        width: 50%;
+    }
+
+    &--user-auth {
+        display: inline-block;
+        text-align: right;
+        width: 50%;
+    }
+}

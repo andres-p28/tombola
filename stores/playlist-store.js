@@ -32,7 +32,6 @@ PlaylistStore.prototype.addSong = function (video) {
 };
 
 PlaylistStore.prototype.getSongsInPlaylist = function () {
-    console.log(this.playlist);
     return this.playlist;
 };
 
