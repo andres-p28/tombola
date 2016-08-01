@@ -1,0 +1,16 @@
+.header {
+    color: white;
+    margin: 50px auto 0px;
+    width: 80%;
+
+    &--user-info {
+        display: inline-block;
+        width: 50%;
+    }
+
+    &--user-actions {
+        display: inline-block;
+        text-align: right;
+        width: 50%;
+    }
+}

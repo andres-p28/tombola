@@ -15,7 +15,7 @@ var appRoutes = (
     <Router history={browserHistory}>
         <Route path="/" component={Layout}>
             <IndexRoute component={SearchPage} />
-            
+
             <Route path="/index.html" component={SearchPage} />
             <Route path="/demo.html" component={DemoPage} />
         </Route>

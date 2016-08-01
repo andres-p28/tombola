@@ -67,6 +67,7 @@ var SearchBar = React.createClass({
             searchValue: ''
         }, this.props.onSearch(''));
     }
+
 });
 
 module.exports = SearchBar;
