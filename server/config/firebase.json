@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "tombola-jdiaz",
+  "private_key_id": "93983e45b110c83c96089a11845902420402aa5a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC3s6Bpm28LpCyy\n87Y/Izyukt7IkBqjYzIZj4pEPIodKM6c4KmuPgPuNCrlU/jX+WWCLsMQMOkB6Rop\nHznTYmhFEeFR29CfuZcumBrlsNLYHIHRFxraOQzbocSukfouOnN7XVn8/be8gN+v\nXmMPew3iuRGZhw5V0gdpGfuGMZhfx4IuDD79xumLCqBHOEMITKL/Jn46FX3TpZkq\nN44Tx/BeljaU1ILHZ0D9hC+SAy62P/2EBSD2MYDst4WrZBnfMk/j9k3zvR9zpAFE\nSYivQzgWVeHE+DrUYeCI2Iq3ZHRIvtIK8WFcJvQV9BKqCfqs654TSGzryWieV/B4\njsYbjwmpAgMBAAECggEAAWPqouH6RSxI6lHN30x0+R1DcmEk0ne9uVPMyBdtNCtK\n5QUOQ7NUdEkQyguIppnMmt+fuk+kc88/02/ZEDB+eYdZHTV8rrjI3CFqkrJz5g7R\nLLPwEBa+cisXQfr42cC3fweF1tRUv6h6COm99jAIOt8Lsw3CngOo6rK3pJxbet4U\nY1ByriHHXvhl+qcla/M7/L7h3ZSy9nc+n3GsGS3eE3JXuihoEI6hVpAv88QPoanV\nso0GL5iuD/F1igqEIQd1fVmQoc/q8rIO82+Q+2h9mFnOX8tmekC48pWjlHjiR9LE\ngVYPlcp2mZjJVep379DkbnKUv8qdInPrCEL1ylqqwQKBgQDqQP7ySUaDFRK2cdhW\nt0wFg2TM54jeIUrUiERQ8pCytP5m70Gqgr/e93y95f7bRt5rHFwE6MsWjh0g4PEh\n+SxEGrSTkDh/gQwSErc+hsbw+N/TT9Abr2rRxXJLlyik7GXJcOa3Y+qn3H9CM2ds\nLsesIrFGPSbd/pc3E8DZTM0frwKBgQDIwUQDHY4Tflh0pU9eVMr4VR0/iPeytVgk\nRvWKHBJ2ymjA79PDICqIoiUdDQrUnAsxLHMNR8q4f+Hi+/gKtsCd8wj2lMhciMii\nCQvhZakt6Be/LgwcOgXsBjGEOtU6Wb4Ge9BhycJKIP+wGdU2mp2fsyoldShB0MIF\nsCnE50uqJwKBgDsjV3mROCTlkAjRKt2RfraxmiQEm9AANaT8FcsdwZvsB4GzCy/h\nvFCsyCgkxTdUZ9hAm5Z9sq+qBv6C6z05a4xx9X5/XVQLHyH86Zf2bIjvO4pcTtx+\nZ4g3wYgFzDP+nh/Bye0oY1gnWVU8JvLvyGbTh0+FJqfKmyBDc18ofWxvAoGAA7y1\nS2mNb4d2lhVNuO/TJ3ROKxSdp9IAZgx8HaoQHe3+rTjJtGQw5oI+NqA7h2GwQ6YU\nLjcb6vtWdSdDos9sHoSbshtq724MbhfFBNkjoRsk9gYha5UY7x/eZBvERGXPR8ee\nRXPADik3GUwhz/Zo4MQxEKlxqmf8dKam4Gd93RkCgYB7uuON3HIQjyfXkjJqfdLO\nD3uzy2xT/n6NxXBRGTY3a8p/HVB5IbrvEBRDY7pHmlf9tX69MitaiXfBSKS9QJB+\nG3/3U+xd3XNHiDFxrK0rwfFY9eRXts15BFqJaFdif3g74WBKBCT+KwBdioJxp55M\nSwVRPnUBbzL4YY0Hegs7cQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "tombola-firebase@tombola-jdiaz.iam.gserviceaccount.com",
+  "client_id": "103830409275543115591",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tombola-firebase%40tombola-jdiaz.iam.gserviceaccount.com"
+}

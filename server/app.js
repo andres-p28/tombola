@@ -5,6 +5,8 @@ var cors = require('cors')
 var express = require('express');
 var path = require('path');
 var youtubeApi = require('./routes/youtube/index');
+var userApi = require('./routes/user/index');
+var session = require('express-session');
 
 var app = express();
 var port;
@@ -16,9 +18,18 @@ if (argv.production) {
 }
 
 app.use(cors());
+app.use(session({
+    secret: 'ultraSecret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        secure: true
+    }
+}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '../build')));
 app.use('/api', youtubeApi);
+app.use('/api', userApi);
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, '../build', 'index.html'));

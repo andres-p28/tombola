@@ -63,7 +63,7 @@ var Header = React.createClass({
                 <div className="header--user-actions" onClick={this.loginWithGoogle}>
                     Login with google
                 </div>
-            )
+            );
         }
 
         return UserActions;
@@ -79,16 +79,18 @@ var Header = React.createClass({
         UserService.loginWithGoogle(function (err, result) {
             if (!err) {
                 UserActions.login(result.user);
+                UserService.authorizeInServer();
             }
         });
     },
 
     logout: function () {
         UserService.logout(function (err, result) {
-            if(!err) {
+            if (!err) {
                 UserActions.logout();
+                UserService.logoutInServer();
             }
-        })
+        });
     }
 
 });
