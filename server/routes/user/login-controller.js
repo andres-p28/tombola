@@ -7,8 +7,14 @@ var Users = require('./users');
 var loginController = function(req, res) {
     firebase.auth().verifyIdToken(req.body.idToken).then(function (user) {
         req.session.user = user;
-        Users.addUser(user);
-        res.json({response: 'User authorized in server'});
+        Users.findUser(user.email, function (snapshot) {
+            if (snapshot.val()) {
+                res.json({response: 'User authorized in server'});
+            } else {
+                Users.addUser(user);
+                res.json({response: 'User authorized in server'});
+            }
+        });
     }).catch(function (error) {
         res.json({error: error});
     });
